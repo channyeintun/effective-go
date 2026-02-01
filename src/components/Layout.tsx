@@ -26,8 +26,15 @@ const Layout: React.FC<LayoutProps> = ({ children, tocItems }) => {
 
                         <footer className="mt-12 py-8 text-center border-t border-gray-100">
                             <p className="text-sm font-medium text-gray-400">
-                                © 2026 Go Documentation Myanmar Translation.
-                                <span className="block mt-1 text-gray-300">Built with precision using Next.js & Bun.</span>
+                                Created by <span className="text-gray-600">Chan Nyein Tun</span>.
+                                <a
+                                    href="https://github.com/channyeintun/effective-go"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block mt-2 text-go-blue hover:text-go-dark-blue transition-colors duration-200"
+                                >
+                                    GitHub Repository
+                                </a>
                             </p>
                         </footer>
                     </div>
