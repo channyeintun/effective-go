@@ -2,25 +2,112 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground: #1a1a1b;
+  --go-blue: #00add8;
+  --go-light-blue: #ade3ef;
+  --go-dark-blue: #007d9c;
+  --gray-light: #f8f9fa;
+  --gray-medium: #e0ebf5;
+  --border-color: #d6e2ef;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.6;
+}
+
+pre {
+  background-color: var(--gray-light);
+  border-radius: 4px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  white-space: pre !important;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  background-color: var(--gray-light);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+  white-space: pre !important;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  white-space: inherit !important;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  color: var(--go-dark-blue);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 1rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+a {
+  color: var(--go-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Custom Tailwind utilities for CSS variables */
+.text-go-dark-blue {
+  color: var(--go-dark-blue);
+}
+
+.text-go-blue {
+  color: var(--go-blue);
+}
+
+.bg-gray-light {
+  background-color: var(--gray-light);
+}
+
+.border-border-color {
+  border-color: var(--border-color);
+}
+
+.hover\:text-go-blue:hover {
+  color: var(--go-blue);
+}
+
+.text-foreground {
+  color: var(--foreground);
+}
+
+/* Section scroll margin for better anchor navigation */
+section[id] {
+  scroll-margin-top: 2rem;
+}
+
+/* Border utility for go-blue */
+.border-go-blue {
+  border-color: var(--go-blue);
 }
