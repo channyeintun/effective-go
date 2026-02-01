@@ -30,7 +30,7 @@ const OnThisPage: React.FC<OnThisPageProps> = ({ items }) => {
 
     return (
         <div className="h-full py-12 px-8 overflow-y-auto custom-scrollbar">
-            <h5 className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-6 font-display">
+            <h5 className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 mb-6 font-display">
                 On This Page
             </h5>
             <nav className="flex flex-col space-y-1">
@@ -39,8 +39,8 @@ const OnThisPage: React.FC<OnThisPageProps> = ({ items }) => {
                         key={item.id}
                         href={`#${item.id}`}
                         className={`text-[13px] py-1.5 transition-all duration-300 border-l-2 pl-4 -ml-[1px] ${activeId === item.id
-                                ? 'text-go-blue font-semibold border-go-blue opacity-100'
-                                : 'text-gray-500 border-transparent opacity-70 hover:opacity-100 hover:text-gray-900'
+                            ? 'text-go-blue font-semibold border-go-blue'
+                            : 'text-slate-600 border-transparent hover:text-slate-900'
                             }`}
                         style={{ paddingLeft: `${1 + (item.level - 1) * 0.75}rem` }}
                     >

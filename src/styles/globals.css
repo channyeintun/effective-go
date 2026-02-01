@@ -78,7 +78,9 @@ h1 {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  line-height: 1.2;
+  line-height: 1.6;
+  padding-bottom: 0.5rem;
+  display: block;
 }
 
 h2 {
