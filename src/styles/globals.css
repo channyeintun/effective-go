@@ -1,45 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #1a1a1b;
+  --background: #fdfdfe;
+  --foreground: #0f172a;
   --go-blue: #00add8;
   --go-light-blue: #ade3ef;
   --go-dark-blue: #007d9c;
-  --gray-light: #f8f9fa;
-  --gray-medium: #e0ebf5;
-  --border-color: #d6e2ef;
+  --gray-light: #f8fafc;
+  --gray-medium: #f1f5f9;
+  --border-color: #e2e8f0;
+  --accent-gradient: linear-gradient(135deg, #00add8 0%, #007d9c 100%);
+  --sidebar-blur: rgba(255, 255, 255, 0.8);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  line-height: 1.6;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
 pre {
-  background-color: var(--gray-light);
-  border-radius: 4px;
-  padding: 1rem;
+  background-color: #1e293b;
+  color: #f8fafc;
+  border-radius: 12px;
+  padding: 1.5rem;
   overflow-x: auto;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   white-space: pre !important;
 }
 
 code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  background-color: var(--gray-light);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  background-color: var(--gray-medium);
+  color: #c026d3;
+  /* A bit of color for inline code */
   padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-  font-size: 0.9em;
+  border-radius: 6px;
+  font-size: 0.85em;
+  font-weight: 500;
   white-space: pre !important;
 }
 
 pre code {
   background-color: transparent;
+  color: inherit;
   padding: 0;
   border-radius: 0;
+  font-size: inherit;
+  font-weight: normal;
   white-space: inherit !important;
 }
 
@@ -47,67 +63,76 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: 600;
-  color: var(--go-dark-blue);
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.025em;
 }
 
 h1 {
-  font-size: 2.5rem;
-  margin-top: 1rem;
+  font-size: 3.5rem;
+  margin-top: 2rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
 }
 
 h2 {
-  font-size: 1.8rem;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 0.5rem;
+  font-size: 2.25rem;
+  border-bottom: 2px solid var(--gray-medium);
+  padding-bottom: 0.75rem;
 }
 
 h3 {
-  font-size: 1.4rem;
+  font-size: 1.75rem;
+  color: var(--go-dark-blue);
+}
+
+p {
+  margin-bottom: 1.25rem;
 }
 
 a {
   color: var(--go-blue);
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 a:hover {
+  color: var(--go-dark-blue);
   text-decoration: underline;
 }
 
-/* Custom Tailwind utilities for CSS variables */
-.text-go-dark-blue {
-  color: var(--go-dark-blue);
-}
-
-.text-go-blue {
-  color: var(--go-blue);
-}
-
-.bg-gray-light {
-  background-color: var(--gray-light);
-}
-
-.border-border-color {
-  border-color: var(--border-color);
-}
-
-.hover\:text-go-blue:hover {
-  color: var(--go-blue);
-}
-
-.text-foreground {
-  color: var(--foreground);
+/* Glassmorphism utilities */
+.glass {
+  background: var(--sidebar-blur);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Section scroll margin for better anchor navigation */
 section[id] {
-  scroll-margin-top: 2rem;
+  scroll-margin-top: 4rem;
 }
 
-/* Border utility for go-blue */
-.border-go-blue {
-  border-color: var(--go-blue);
+/* Custom layout enhancements */
+.content-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  border: 1px solid var(--border-color);
+}
+
+.text-go-dark-blue {
+  color: var(--go-dark-blue);
+}
+
+.transition-all-custom {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }

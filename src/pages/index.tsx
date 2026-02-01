@@ -1,33 +1,46 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Layout from '@/components/Layout';
 import { tocItems } from '@/data/toc';
+import { animate } from 'animejs';
 
 const EffectiveGo = () => {
+  useEffect(() => {
+    animate('.animate-in', {
+      translateY: [20, 0],
+      opacity: [0, 1],
+      duration: 1000,
+      delay: (el, i) => i * 100,
+      ease: 'outExpo'
+    });
+  }, []);
+
   return (
     <Layout tocItems={tocItems}>
-      <h1 id="top">Effective Go (မြန်မာဘာသာ)</h1>
+      <div className="animate-in opacity-0">
+        <h1 id="top">Effective Go (မြန်မာဘာသာ)</h1>
+      </div>
 
-      <section id="introduction">
+      <section id="introduction" className="animate-in opacity-0">
         <h2>နိဒါန်း (Introduction)</h2>
         <p>
-          Go သည် ဘာသာစကားအသစ်တစ်ခု ဖြစ်ပါသည်။ ၎င်းသည် တည်ရှိပြီးသား ဘာသာစကားများမှ စိတ်ကူးစိတ်သန်းများကို ယူဆောင်ထားသော်လည်း၊ ၎င်း၏ ထူးခြားသော ဂုဏ်သတ္တိများကြောင့် ထိရောက်သော Go program များသည် အခြားသော ဘာသာစကားတူများဖြင့် ရေးသားထားသော program များနှင့် ကွဲပြားပါသည်။ C++ သို့မဟုတ် Java program တစ်ခုကို Go သို့ တိုက်ရိုက် ဘာသာပြန်ဆိုခြင်းသည် စိတ်ကျေနပ်ဖွယ်ရလဒ်ကို ပေးစွမ်းနိုင်မည် မဟုတ်ပါ - Java program များကို Go ဖြင့် မဟုတ်ဘဲ Java ဖြင့်သာ ရေးသားကြပါသည်။ အခြားတစ်ဖက်တွင်၊ ပြဿနာတစ်ခုကို Go ၏ ရှုထောင့်မှနေ၍ စဉ်းစားခြင်းဖြင့် အောင်မြင်သော်လည်း လုံးဝကွဲပြားခြားနားသော program တစ်ခုကို ရရှိနိုင်ပါသည်။ တစ်နည်းအားဖြင့်ဆိုရသော် Go ကို ကောင်းမွန်စွာ ရေးသားနိုင်ရန်အတွက် ၎င်း၏ ဂုဏ်သတ္တိများနှင့် idioms (အသုံးအနှုန်းပုံစံများ) ကို နားလည်ရန် အရေးကြီးပါသည်။ ထို့အပြင် Go တွင် သတ်မှတ်ထားသော naming၊ formatting၊ program construction အစရှိသည့် ရိုးရာအရ သတ်မှတ်ထားသော ထုံးစံများ (conventions) ကို သိရှိထားခြင်းဖြင့် သင်ရေးသားသော program များကို အခြားသော Go programmer များအနေဖြင့် နားလည်ရ လွယ်ကူစေမည် ဖြစ်ပါသည်။
+          Go သည် ပရိုဂရမ်းမင်းဘာသာစကားတစ်ခု ဖြစ်ပါသည်။ ၎င်းသည် တည်ရှိပြီးသား ပရိုဂရမ်းမင်းဘာသာစကားများမှ စိတ်ကူးစိတ်သန်းများကို ယူဆောင်ထားသော်လည်း၊ ၎င်း၏ ထူးခြားသော ဂုဏ်သတ္တိများကြောင့် ထိရောက်သော Go program များသည် အခြားသော ပရိုဂရမ်းမင်းဘာသာစကားတူများဖြင့် ရေးသားထားသော program များနှင့် ကွဲပြားပါသည်။ C++ သို့မဟုတ် Java program တစ်ခုကို Go သို့ တိုက်ရိုက် ဘာသာပြန်ဆိုခြင်းသည် စိတ်ကျေနပ်ဖွယ်ရလဒ်ကို ပေးစွမ်းနိုင်မည် မဟုတ်ပါ - Java program များကို Go ဖြင့် မဟုတ်ဘဲ Java ဖြင့်သာ ရေးသားကြပါသည်။ အခြားတစ်ဖက်တွင်၊ ပြဿနာတစ်ခုကို Go ၏ ရှုထောင့်မှနေ၍ စဉ်းစားခြင်းဖြင့် အောင်မြင်သော်လည်း လုံးဝကွဲပြားခြားနားသော program တစ်ခုကို ရရှိနိုင်ပါသည်။ တစ်နည်းအားဖြင့်ဆိုရသော် Go ကို ကောင်းမွန်စွာ ရေးသားနိုင်ရန်အတွက် ၎င်း၏ ဂုဏ်သတ္တိများနှင့် idioms (အသုံးအနှုန်းပုံစံများ) ကို နားလည်ရန် အရေးကြီးပါသည်။ ထို့အပြင် Go တွင် သတ်မှတ်ထားသော naming၊ formatting၊ program construction အစရှိသည့် ရိုးရာအရ သတ်မှတ်ထားသော ထုံးစံများ (conventions) ကို သိရှိထားခြင်းဖြင့် သင်ရေးသားသော program များကို အခြားသော Go programmer များအနေဖြင့် နားလည်ရ လွယ်ကူစေမည် ဖြစ်ပါသည်။
         </p>
         <p>
           ဤစာတမ်းသည် ရှင်းလင်းပြီး idiomatic ဖြစ်သော Go code ရေးသားနည်းများအတွက် အကြံပြုချက်များကို ပေးထားပါသည်။ ၎င်းသည် <a href="https://go.dev/ref/spec">language specification</a>၊ <a href="https://go.dev/tour/">Tour of Go</a> နှင့် <a href="https://go.dev/doc/code.html">How to Write Go Code</a> တို့ကို ဖြည့်စွက်ပေးထားခြင်း ဖြစ်သောကြောင့် အဆိုပါစာတမ်းများကို ဦးစွာဖတ်ရှုရန် အကြံပြုလိုပါသည်။
         </p>
         <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
           <p className="text-sm text-blue-700">
-            <strong>၂၀၂၂ ဇန်နဝါရီတွင် ထပ်မံဖြည့်စွက်ချက် -</strong> ဤစာတမ်းကို ၂၀၀၉ ခုနှစ် Go စတင်ထုတ်လုပ်ချိန်တွင် ရေးသားခဲ့ခြင်းဖြစ်ပြီး ထိုအချိန်မှစ၍ ကြီးကြီးမားမား ပြင်ဆင်မှုများ ပြုလုပ်ထားခြင်း မရှိပါ။ ဘာသာစကား၏ တည်ငြိမ်မှုကြောင့် ဘာသာစကားကိုယ်နှိုက်ကို မည်သို့အသုံးပြုရမည်ကို သိရှိရန်အတွက် အလွန်ကောင်းမွန်သော လမ်းညွှန်ချက် ဖြစ်နေဆဲ ဖြစ်သော်လည်း၊ build system၊ testing၊ modules နှင့် polymorphism (generics) ကဲ့သို့သော Go ဂေဟစနစ်၏ အရေးကြီးသော ပြောင်းလဲမှုများအကြောင်း အနည်းငယ်သာ ပါဝင်ပါသည်။ ထို့ကြောင့် ဤစာတမ်းသည် ပြီးပြည့်စုံသော လမ်းညွှန်တစ်ခု မဟုတ်ကြောင်း နားလည်စေလိုပါသည်။
+            <strong>၂၀၂၂ ဇန်နဝါရီတွင် ထပ်မံဖြည့်စွက်ချက် -</strong> ဤစာတမ်းကို ၂၀၀၉ ခုနှစ် Go စတင်ထုတ်လုပ်ချိန်တွင် ရေးသားခဲ့ခြင်းဖြစ်ပြီး ထိုအချိန်မှစ၍ ကြီးကြီးမားမား ပြင်ဆင်မှုများ ပြုလုပ်ထားခြင်း မရှိပါ။ ပရိုဂရမ်းမင်းဘာသာစကား၏ တည်ငြိမ်မှုကြောင့် ပရိုဂရမ်းမင်းဘာသာစကားကိုယ်နှိုက်ကို မည်သို့အသုံးပြုရမည်ကို သိရှိရန်အတွက် အလွန်ကောင်းမွန်သော လမ်းညွှန်ချက် ဖြစ်နေဆဲ ဖြစ်သော်လည်း၊ build system၊ testing၊ modules နှင့် polymorphism (generics) ကဲ့သို့သော Go ဂေဟစနစ်၏ အရေးကြီးသော ပြောင်းလဲမှုများအကြောင်း အနည်းငယ်သာ ပါဝင်ပါသည်။ ထို့ကြောင့် ဤစာတမ်းသည် ပြီးပြည့်စုံသော လမ်းညွှန်တစ်ခု မဟုတ်ကြောင်း နားလည်စေလိုပါသည်။
           </p>
         </div>
 
         <h3 id="examples">ဥပမာများ (Examples)</h3>
         <p>
-          <a href="https://go.dev/src/">Go package sources</a> များသည် core library အဖြစ်သာမက၊ ဘာသာစကားကို မည်သို့အသုံးပြုရမည်ဆိုသည့် အကောင်းဆုံး ဥပမာများလည်း ဖြစ်ပါသည်။ ထို့အပြင် များစွာသော package များတွင် go.dev ဝဘ်ဆိုက်မှ တိုက်ရိုက် run နိုင်သော လက်တွေ့အသုံးပြုနိုင်သည့် executable examples များ ပါဝင်ပါသည်။ ပြဿနာတစ်ခုကို မည်သို့ချဉ်းကပ်ရမည် သို့မဟုတ် တစ်ခုခုကို မည်သို့ implement လုပ်ရမည်ကို သိလိုပါက standard library ရှိ documentation၊ code နှင့် examples များက သင့်အတွက် အဖြေများ၊ စိတ်ကူးများနှင့် နောက်ခံအချက်အလက်များကို ပေးစွမ်းနိုင်ပါလိမ့်မည်။
+          <a href="https://go.dev/src/">Go package sources</a> များသည် core library အဖြစ်သာမက၊ ပရိုဂရမ်းမင်းဘာသာစကားကို မည်သို့အသုံးပြုရမည်ဆိုသည့် အကောင်းဆုံး ဥပမာများလည်း ဖြစ်ပါသည်။ ထို့အပြင် များစွာသော package များတွင် go.dev ဝဘ်ဆိုက်မှ တိုက်ရိုက် run နိုင်သော လက်တွေ့အသုံးပြုနိုင်သည့် executable examples များ ပါဝင်ပါသည်။ ပြဿနာတစ်ခုကို မည်သို့ချဉ်းကပ်ရမည် သို့မဟုတ် တစ်ခုခုကို မည်သို့ implement လုပ်ရမည်ကို သိလိုပါက standard library ရှိ documentation၊ code နှင့် examples များက သင့်အတွက် အဖြေများ၊ စိတ်ကူးများနှင့် နောက်ခံအချက်အလက်များကို ပေးစွမ်းနိုင်ပါလိမ့်မည်။
         </p>
       </section>
 
-      <section id="formatting">
+      <section id="formatting" className="animate-in opacity-0">
         <h2>Formatting</h2>
         <p>
           Formatting ဆိုင်ရာ ပြဿနာများသည် အငြင်းပွားစရာ အများဆုံး ဖြစ်သော်လည်း အကျိုးသက်ရောက်မှု အနည်းဆုံး ဖြစ်ပါသည်။ လူများသည် ကွဲပြားသော formatting style များကို လိုက်လျောညီထွေ ဖြစ်အောင် ပြုလုပ်နိုင်သော်လည်း၊ လူတိုင်း တူညီသော style ကို လိုက်နာပါက အချိန်ကုန်သက်သာပြီး ပိုမိုကောင်းမွန်ပါသည်။ ထိုသို့သော အခြေအနေကို ရရှိရန်အတွက် ရှည်လျားသော rule manual ကြီး မလိုဘဲ မည်သို့ဆောင်ရွက်ကြမည်နည်း။
@@ -75,7 +88,7 @@ const EffectiveGo = () => {
         </dl>
       </section>
 
-      <section id="commentary">
+      <section id="commentary" className="animate-in opacity-0">
         <h2>Commentary</h2>
         <p>
           Go တွင် C-style <code>/* */</code> block comments များနှင့် C++-style <code>//</code> line comments များကို ပေးထားပါသည်။ Line comments များမှာ ပုံမှန်အသုံးပြုမှုဖြစ်ပြီး၊ block comments များကို package comments များအဖြစ် သို့မဟုတ် code အများအပြားကို ခေတ္တပိတ်ထားရန် (disable) အတွက် အသုံးများပါသည်။
@@ -85,10 +98,10 @@ const EffectiveGo = () => {
         </p>
       </section>
 
-      <section id="names">
+      <section id="names" className="animate-in opacity-0">
         <h2>Names</h2>
         <p>
-          အခြားသော ဘာသာစကားများကဲ့သို့ပင် Go တွင် အမည်ပေးခြင်း (Naming) သည် အလွန်အရေးကြီးပါသည်။ ၎င်းသည် semantic effect ပင် ရှိပါသည်- package တစ်ခု၏ ပြင်ပမှ အမည်တစ်ခုကို မြင်နိုင်ခြင်း (visibility) ရှိမရှိကို ၎င်း၏ ပထမစာလုံးသည် စာလုံးကြီး (upper case) ဖြစ်မဖြစ်ပေါ် မူတည်၍ ဆုံးဖြတ်ပါသည်။ ထို့ကြောင့် Go program များရှိ naming conventions များအကြောင်း ဆွေးနွေးရန် လိုအပ်ပါသည်။
+          အခြားသော ပရိုဂရမ်းမင်းဘာသာစကားများကဲ့သို့ပင် Go တွင် အမည်ပေးခြင်း (Naming) သည် အလွန်အရေးကြီးပါသည်။ ၎င်းသည် semantic effect ပင် ရှိပါသည်- package တစ်ခု၏ ပြင်ပမှ အမည်တစ်ခုကို မြင်နိုင်ခြင်း (visibility) ရှိမရှိကို ၎င်း၏ ပထမစာလုံးသည် စာလုံးကြီး (upper case) ဖြစ်မဖြစ်ပေါ် မူတည်၍ ဆုံးဖြတ်ပါသည်။ ထို့ကြောင့် Go program များရှိ naming conventions များအကြောင်း ဆွေးနွေးရန် လိုအပ်ပါသည်။
         </p>
 
         <h3 id="package-names">Package names</h3>
@@ -129,7 +142,7 @@ if owner != user {
         </p>
       </section>
 
-      <section id="semicolons">
+      <section id="semicolons" className="animate-in opacity-0">
         <h2>Semicolons</h2>
         <p>
           C နှင့် ဆင်တူစွာပင် Go ၏ formal grammar တွင် statement များကို အဆုံးသတ်ရန် semicolons များကို အသုံးပြုသော်လည်း၊ C နှင့် မတူသည်မှာ အဆိုပါ semicolons များသည် source code ထဲတွင် ပေါ်မလာခြင်း ဖြစ်ပါသည်။ ယင်းအစား lexer သည် scan လုပ်နေစဉ်အတွင်း ရိုးရှင်းသော စည်းမျဉ်းတစ်ခုကို အသုံးပြု၍ semicolons များကို အလိုအလျောက် ထည့်သွင်းပေးသွားပါသည်။ ထို့ကြောင့် input text သည် semicolons များ အများအားဖြင့် ကင်းမဲ့နေပါသည်။
@@ -163,7 +176,7 @@ if owner != user {
 }`}</code></pre>
       </section>
 
-      <section id="control-structures">
+      <section id="control-structures" className="animate-in opacity-0">
         <h2>Control structures</h2>
         <p>
           Go ၏ control structures များသည် C နှင့် ဆင်တူသော်လည်း အရေးကြီးသော အချက်များ ကွဲပြားပါသည်။ <code>do</code> သို့မဟုတ် <code>while</code> loop မပါဝင်ဘဲ ပိုမိုစွမ်းဆောင်နိုင်သော <code>for</code> သာ ပါရှိပါသည်။ <code>switch</code> သည် ပိုမို flexible ဖြစ်ပါသည်။ <code>if</code> နှင့် <code>switch</code> တို့တွင် <code>for</code> ကဲ့သို့ စတင်သတ်မှတ်ခြင်း (initialization) statement ကို ထည့်သွင်းနိုင်ပါသည်။
@@ -377,7 +390,7 @@ case *int:
 }`}</code></pre>
       </section>
 
-      <section id="functions">
+      <section id="functions" className="animate-in opacity-0">
         <h2>Functions</h2>
 
         <h3 id="multiple-return">Multiple return values</h3>
@@ -505,12 +518,12 @@ leaving: b`}</code></pre>
         </p>
       </section>
 
-      <section id="data">
+      <section id="data" className="animate-in opacity-0">
         <h2>Data</h2>
 
         <h3 id="allocation-new">Allocation with new</h3>
         <p>
-          Go တွင် memory allocation အတွက် primitive နှစ်ခုရှိပါသည် - <code>new</code> နှင့် <code>make</code> တို့ ဖြစ်ပါသည်။ ၎င်းတို့သည် ကွဲပြားသော အရာများကို လုပ်ဆောင်ကြပြီး မတူညီသော types များအတွက် အသုံးပြုကြပါသည်။ <code>new</code> အကြောင်း အရင်ပြောရလျှင် ၎င်းသည် memory ကို allocate လုပ်ပေးသော်လည်း အခြားဘာသာစကားများကဲ့သို့ initialize မလုပ်ပေးပါ၊ တန်ဖိုးများကို zero သာ ထားပေးပါသည်။ တစ်နည်းအားဖြင့် <code>new(T)</code> သည် type <code>T</code> အတွက် zeroed storage ကို allocate လုပ်ပေးပြီး ၎င်း၏ address (type <code>*T</code>) ကို return ပြန်ပေးပါသည်။ Go ၏ terminology အနေဖြင့် ဆိုရလျှင် ၎င်းသည် type <code>T</code> ၏ value အသစ်တစ်ခုဆီသို့ pointer တစ်ခုကို ပေးခြင်း ဖြစ်ပါသည်။
+          Go တွင် memory allocation အတွက် primitive နှစ်ခုရှိပါသည် - <code>new</code> နှင့် <code>make</code> တို့ ဖြစ်ပါသည်။ ၎င်းတို့သည် ကွဲပြားသော အရာများကို လုပ်ဆောင်ကြပြီး မတူညီသော types များအတွက် အသုံးပြုကြပါသည်။ <code>new</code> အကြောင်း အရင်ပြောရလျှင် ၎င်းသည် memory ကို allocate လုပ်ပေးသော်လည်း အခြားပရိုဂရမ်းမင်းဘာသာစကားများကဲ့သို့ initialize မလုပ်ပေးပါ၊ တန်ဖိုးများကို zero သာ ထားပေးပါသည်။ တစ်နည်းအားဖြင့် <code>new(T)</code> သည် type <code>T</code> အတွက် zeroed storage ကို allocate လုပ်ပေးပြီး ၎င်း၏ address (type <code>*T</code>) ကို return ပြန်ပေးပါသည်။ Go ၏ terminology အနေဖြင့် ဆိုရလျှင် ၎င်းသည် type <code>T</code> ၏ value အသစ်တစ်ခုဆီသို့ pointer တစ်ခုကို ပေးခြင်း ဖြစ်ပါသည်။
         </p>
         <p>
           <code>new</code> သည် zeroed memory ကို ပေးခြင်းဖြစ်သောကြောင့်၊ သင်၏ data structures များကို ရေးသားရာတွင် type တစ်ခုစီ၏ zero value သည် နောက်ထပ် initialization မလိုဘဲ အသုံးပြုရန် အဆင်သင့်ဖြစ်နေစေရန် (ready to use) တည်ဆောက်ခြင်းမှာ ကောင်းမွန်သော အလေ့အထ ဖြစ်ပါသည်။ ဥပမာအားဖြင့် <code>bytes.Buffer</code> ၏ documentation တွင် "the zero value for Buffer is an empty buffer ready to use" ဟု ဖော်ပြထားပါသည်။ ထို့အတူ <code>sync.Mutex</code> တွင်လည်း explicit constructor သို့မဟုတ် <code>Init</code> method မပါဝင်ပါ။ ယင်းအစား <code>sync.Mutex</code> အတွက် zero value သည် unlocked mutex တစ်ခုအဖြစ် သတ်မှတ်ထားခြင်း ဖြစ်ပါသည်။
@@ -985,10 +998,10 @@ const (
 
         <h3 id="init-function">The init function</h3>
         <p>
-          နောက်ဆုံးအနေဖြင့် package source file တစ်ခုချင်းစီတွင် ၎င်း၏ ကိုယ်ပိုင် <code>init</code> function (argument မပါသော) များ ပါဝင်နိုင်ပါသည်။ <code>init</code> သည် package အတွင်းရှိ variable declaration များအားလုံး initialize ဖြစ်ပြီးမှသာ အလုပ်လုပ်မည် ဖြစ်ပါသည်။ ၎င်းကို များသောအားဖြင့် program မစတင်မီ လိုအပ်သော configuration များ ပြုလုပ်ရန် အသုံးပြုပါသည်။
+          နောက်ဆုံးအနေဖြင့် package source file တစ်ခုချင်းစီတွင် ၎င်း၏ ကိုယ်ပိုင် <code>init</code> function (argument မပါသော) များ ပါဝင်နိုင်ပါသည်။ (အမှန်တကယ်တွင် file တစ်ခုစီ၌ <code>init</code> functions အများအပြား ရှိနိုင်ပါသည်။) <code>init</code> သည် package အတွင်းရှိ variable declaration များအားလုံး ၎င်းတို့၏ initializers များ တွက်ချက်ပြီးမှသာ အလုပ်လုပ်မည် ဖြစ်ပါသည်။ အဆိုပါ variable declarations များသည်လည်း ၎င်းတို့၏ အမှီပြုရာ (dependencies) များဖြစ်သော imported packages များ အားလုံး initialize ဖြစ်ပြီးမှသာ အလုပ်လုပ်မည် ဖြစ်ပါသည်။
         </p>
         <p>
-          အောက်ပါဥပမာတွင် <code>init</code> ကို အသုံးပြု၍ flags များ သတ်မှတ်ပုံကို ပြထားပါသည်။
+          Declarations အဖြစ် ဖော်ပြရန် မဖြစ်နိုင်သော initialization များအပြင်၊ <code>init</code> functions များ၏ အသုံးအများဆုံး နည်းလမ်းတစ်ခုမှာ အမှန်တကယ် execution မစတင်မီ program ၏ state မှန်ကန်မှုကို စစ်ဆေးခြင်း သို့မဟုတ် ပြုပြင်ခြင်း ဖြစ်ပါသည်။
         </p>
         <pre><code>{`func init() {
     if user == "" {
@@ -1002,6 +1015,7 @@ const (
     }
     // flag.StringVar များကို ဤနေရာတွင် သတ်မှတ်နိုင်သည်
 }`}</code></pre>
+
         <h3 id="pointers-vs-values">Pointers vs. Values</h3>
         <p>
           Methods များကို pointers များအတွက်သာမက မည်သည့် named type အတွက်မဆို သတ်မှတ်နိုင်ပါသည်။ (pointers နှင့် interfaces များမှလွဲ၍)။ ဥပမာအားဖြင့် <code>slice</code> တစ်ခုပေါ်တွင် method တစ်ခု သတ်မှတ်နိုင်ပါသည်။
@@ -1047,25 +1061,71 @@ func (slice ByteSlice) Append(data []byte) []byte {
         <h3 id="interfaces">Interfaces and other types</h3>
         <h3 id="interface-basics">Interfaces</h3>
         <p>
-          Go ရှိ interface များသည် object တစ်ခု၏ အပြုအမူ (behavior) ကို သတ်မှတ်ရန် နည်းလမ်းတစ်ခု ပေးပါသည်။ အကယ်၍ object တစ်ခုသည် interface တွင် ပါဝင်သော method များကို implement လုပ်ထားပါက ၎င်းကို အဆိုပါ interface အဖြစ် အသုံးပြုနိုင်ပါသည်။ ၎င်းသည် Java သို့မဟုတ် C++ ကဲ့သို့ explicit implementation <code>(implements)</code> မလိုဘဲ implicit ဖြစ်ခြင်းမှာ Go ၏ အစွမ်းထက်သော အချက်တစ်ခု ဖြစ်ပါသည်။
+          Go ရှိ interface များသည် object တစ်ခု၏ behavior ကို specify လုပ်ရန် နည်းလမ်းတစ်ခု ပေးပါသည်။ အကယ်၍ တစ်ခုခုသည် ၎င်းကို လုပ်ဆောင်နိုင်ပါက ၎င်းကို ဤနေရာတွင် အသုံးပြုနိုင်ပါသည်။ ကျွန်ုပ်တို့ ရိုးရှင်းသော ဥပမာအချို့ကို မြင်တွေ့ခဲ့ရပြီး ဖြစ်ပါသည် - custom printers များကို <code>String</code> method ဖြင့် implement လုပ်နိုင်ပြီး <code>Fprintf</code> သည် <code>Write</code> method ရှိသော မည်သည့်အရာမဆိုသို့ output ထုတ်ပေးနိုင်ပါသည်။ Method တစ်ခု သို့မဟုတ် နှစ်ခုသာရှိသော Interfaces များသည် Go code တွင် တွေ့ရများပြီး ၎င်းတို့ကို များသောအားဖြင့် method မှ ဆင်းသက်လာသော အမည်များ ပေးလေ့ရှိပါသည် - ဥပမာ <code>Write</code> ကို implement လုပ်သော <code>io.Writer</code> ကဲ့သို့ ဖြစ်ပါသည်။
         </p>
-        <pre><code>{`type Reader interface {
-    Read(p []byte) (n int, err error)
+        <p>
+          Type တစ်ခုသည် interface အများအပြားကို implement လုပ်နိုင်ပါသည်။ ဥပမာအားဖြင့် collection တစ်ခုသည် <code>sort.Interface</code> ကို implement လုပ်ပါက <code>sort</code> package ရှိ routines များဖြင့် sort လုပ်နိုင်ပါသည် - ၎င်းတွင် <code>Len()</code>, <code>Less(i, j int) bool</code>, နှင့် <code>Swap(i, j int)</code> တို့ ပါဝင်ပြီး custom formatter လည်း ရှိနိုင်ပါသည်။ ဤ <code>Sequence</code> ဥပမာတွင် နှစ်ခုစလုံးကို တွေ့နိုင်ပါသည်။
+        </p>
+        <pre><code>{`type Sequence []int
+
+// Methods required by sort.Interface.
+func (s Sequence) Len() int {
+    return len(s)
+}
+func (s Sequence) Less(i, j int) bool {
+    return s[i] < s[j]
+}
+func (s Sequence) Swap(i, j int) {
+    s[i], s[j] = s[j], s[i]
+}
+
+// Copy returns a copy of the Sequence.
+func (s Sequence) Copy() Sequence {
+    copy := make(Sequence, 0, len(s))
+    return append(copy, s...)
+}
+
+// Method for printing - sorts the elements before printing.
+func (s Sequence) String() string {
+    s = s.Copy() // Make a copy; don't overwrite argument.
+    sort.Sort(s)
+    str := "["
+    for i, elem := range s { // Loop is O(N²); will fix that in next example.
+        if i > 0 {
+            str += " "
+        }
+        str += fmt.Sprint(elem)
+    }
+    return str + "] "
 }`}</code></pre>
 
         <h3 id="conversions">Conversions</h3>
         <p>
-          Go တွင် type တစ်ခုမှ တစ်ခုသို့ ပြောင်းလဲရန် explicit conversion ကို အသုံးပြုရပါသည်။ ဥပမာ - <code>int</code> မှ <code>float64</code> သို့ ပြောင်းလဲခြင်း သို့မဟုတ် <code>string</code> မှ <code>[]byte</code> သို့ ပြောင်းလဲခြင်း တို့ဖြစ်ပါသည်။
+          <code>Sequence</code> ၏ <code>String</code> method သည် <code>Sprint</code> က slices များအတွက် လုပ်ထားပြီးသော အလုပ်ကိုပင် ထပ်မံ လုပ်ဆောင်နေခြင်း ဖြစ်ပါသည်။ (၎င်းတွင် complexity <code>O(N²)</code> ရှိသောကြောင့် poor ဖြစ်ပါသည်)။ ကျွန်ုပ်တို့သည် အားထုတ်မှုကို share လုပ်နိုင်ပါသည် (ပိုမြန်အောင်လည်း လုပ်နိုင်ပါသည်) - <code>Sprint</code> ကို မခေါ်ခင် <code>Sequence</code> ကို plain <code>[]int</code> သို့ convert လုပ်ခြင်းဖြင့် ဖြစ်ပါသည်။
         </p>
-        <pre><code>{`type MyInt int
-var i int = 42
-var m MyInt = MyInt(i)
-
-f := float64(i)
-s := string([]byte{ 'a', 'b', 'c' })`}</code></pre>
+        <pre><code>{`func (s Sequence) String() string {
+    s = s.Copy()
+    sort.Sort(s)
+    return fmt.Sprint([]int(s))
+}`}</code></pre>
         <p>
-          ဤပြောင်းလဲမှုများသည် compile time တွင် static အနေဖြင့် စစ်ဆေးခြင်း ခံရပါသည်။
+          ဤ method သည် <code>String</code> method မှ <code>Sprintf</code> ကို ဘေးကင်းစွာ ခေါ်ဆိုရန် conversion technique ၏ အခြားဥပမာတစ်ခု ဖြစ်ပါသည်။ အကယ်၍ type name ကို လျစ်လျူရှုပါက type နှစ်ခု (<code>Sequence</code> နှင့် <code>[]int</code>) သည် အတူတူပင်ဖြစ်သောကြောင့် ၎င်းတို့အကြား convert လုပ်ခြင်းမှာ legal ဖြစ်ပါသည်။ Conversion သည် value အသစ်ကို create မလုပ်ပါ၊ ၎င်းသည် ရှိပြီးသား value ကို ခဏတာ type အသစ်ကဲ့သို့ ပြုမူစေခြင်းသာ ဖြစ်ပါသည်။ (integer မှ floating point သို့ conversion ကဲ့သို့ value အသစ် create လုပ်သော legal conversions များလည်း ရှိပါသည်)။
         </p>
+        <p>
+          Go ပရိုဂရမ်များတွင် expression ၏ type ကို အခြား method set များကို access ရရန် convert လုပ်ခြင်းသည် idiom တစ်ခု ဖြစ်ပါသည်။ ဥပမာတစ်ခုအနေဖြင့် ကျွန်ုပ်တို့သည် ရှိပြီးသား type <code>sort.IntSlice</code> ကို အသုံးပြု၍ ဥပမာတစ်ခုလုံးကို ဤသို့ လျှော့ချနိုင်ပါသည် -
+        </p>
+        <pre><code>{`type Sequence []int
+
+// Method for printing - sorts the elements before printing
+func (s Sequence) String() string {
+    s = s.Copy()
+    sort.IntSlice(s).Sort()
+    return fmt.Sprint([]int(s))
+}`}</code></pre>
+        <p>
+          ယခု <code>Sequence</code> သည် interfaces အများအပြား (sorting နှင့် printing) ကို implement လုပ်မည့်အစား data item တစ်ခုကို multiple types (<code>Sequence</code>, <code>sort.IntSlice</code> နှင့် <code>[]int</code>) သို့ convert လုပ်နိုင်ခြင်းကို အသုံးပြုထားပါသည်။ လက်တွေ့တွင် ၎င်းသည် unusual ဖြစ်နိုင်သော်လည်း effective ဖြစ်နိုင်ပါသည်။
+        </p>
+
 
         <h3 id="interface-conversions">Interface conversions and type assertions</h3>
         <p>
@@ -1094,27 +1154,130 @@ if ok {
 
         <h3 id="generality">Generality</h3>
         <p>
-          အကယ်၍ type တစ်ခုသည် interface တစ်ခုကို implement လုပ်ရန်အတွက်သာ တည်ရှိပြီး အခြား exported methods များ မရှိပါက အဆိုပါ type ကို export လုပ်ရန် မလိုအပ်ပါ။ Interface ကိုသာ export လုပ်ခြင်းက ၎င်း၏ behavior ကို ပိုမိုရှင်းလင်းစေပါသည်။ ဥပမာ - <code>hash.Hash</code>, <code>crypto/cipher.Block</code>, နှင့် <code>regexp.Regexp</code> တို့ ဖြစ်ပါသည်။
+          အကယ်၍ type တစ်ခုသည် interface တစ်ခုကို implement လုပ်ရန်အတွက်သာ တည်ရှိပြီး အဆိုပါ interface ထက်ကျော်လွန်၍ အခြား exported methods များ မရှိပါက type ကိုယ်တိုင်ကို export လုပ်ရန် မလိုအပ်ပါ။ Interface ကိုသာ export လုပ်ခြင်းက value တွင် interface တွင် ဖော်ပြထားသော အပြုအမူထက်ကျော်လွန်၍ စိတ်ဝင်စားဖွယ်ကောင်းသော behavior မရှိကြောင်း ရှင်းလင်းစေပါသည်။ ၎င်းသည် common method တိုင်း၏ documentation ကို instance တိုင်းတွင် ထပ်ခါတလဲလဲ ရေးသားရခြင်းမှလည်း ရှောင်ရှားစေပါသည်။
         </p>
+        <p>
+          ထိုသို့သော အခြေအနေမျိုးတွင် constructor သည် implement လုပ်ထားသော type အစား interface value တစ်ခုကို return ပြန်ပေးသင့်ပါသည်။ ဥပမာအားဖြင့် hash libraries များတွင် <code>crc32.NewIEEE</code> နှင့် <code>adler32.New</code> နှစ်ခုစလုံးသည် interface type <code>hash.Hash32</code> ကို return ပြန်ပေးပါသည်။ Go ပရိုဂရမ်တစ်ခုတွင် Adler-32 အစား CRC-32 algorithm ဖြင့် အစားထိုးရန် constructor call ကိုသာ ပြောင်းလဲရန် လိုအပ်ပြီး ကျန်ရှိသော code များသည် algorithm ပြောင်းလဲမှု၏ သက်ရောက်မှုကို မခံစားရပါ။
+        </p>
+        <p>
+          အလားတူ ချဥ်းကပ်မှုမျိုးသည် <code>crypto</code> package များရှိ streaming cipher algorithms များကို ၎င်းတို့ ချိတ်ဆက်ထားသော block ciphers များမှ သီးခြားခွဲထုတ်ထားရန် ခွင့်ပြုပါသည်။ <code>crypto/cipher</code> package ရှိ <code>Block</code> interface သည် data တစ်ခုတည်းကို encode လုပ်ပေးသော block cipher ၏ behavior ကို specify လုပ်ပါသည်။ ထို့နောက် <code>bufio</code> package နှင့် ဆင်တူစွာ၊ ဤ interface ကို implement လုပ်သော cipher package များကို block encryption ၏ အသေးစိတ်ကို မသိဘဲ <code>Stream</code> interface ဖြင့် ကိုယ်စားပြုသော streaming ciphers များ တည်ဆောက်ရန် အသုံးပြုနိုင်ပါသည်။
+        </p>
+        <pre><code>{`type Block interface {
+    BlockSize() int
+    Encrypt(dst, src []byte)
+    Decrypt(dst, src []byte)
+}
+
+type Stream interface {
+    XORKeyStream(dst, src []byte)
+}`}</code></pre>
+        <p>
+          ဤသည်မှာ block cipher ကို streaming cipher အဖြစ် ပြောင်းလဲပေးသော counter mode (CTR) stream ၏ definition ဖြစ်ပါသည်။ Block cipher ၏ အသေးစိတ်များကို abstract လုပ်ထားသည်ကို သတိပြုပါ -
+        </p>
+        <pre><code>{`// NewCTR returns a Stream that encrypts/decrypts using the given Block in
+// counter mode. The length of iv must be the same as the Block's block size.
+func NewCTR(block Block, iv []byte) Stream`}</code></pre>
+        <p>
+          <code>NewCTR</code> သည် သတ်မှတ်ထားသော encryption algorithm တစ်ခုတည်းအတွက်သာမက <code>Block</code> interface ကို implement လုပ်ထားသော မည်သည့်အရာနှင့် <code>Stream</code> မဆို သက်ဆိုင်ပါသည်။ ၎င်းတို့သည် interface values များကို return ပြန်သောကြောင့် CTR encryption ကို အခြား encryption modes များဖြင့် အစားထိုးခြင်းသည် localized change တစ်ခုသာ ဖြစ်ပါသည်။ Constructor calls များကို ပြင်ဆင်ရမည်ဖြစ်သော်လည်း ပတ်ဝန်းကျင်ရှိ code များသည် result ကို <code>Stream</code> အဖြစ်သာ ဆက်ဆံရမည်ဖြစ်သောကြောင့် ခြားနားချက်ကို သတိပြုမိမည် မဟုတ်ပါ။
+        </p>
+
 
         <h3 id="interfaces-and-methods">Interfaces and methods</h3>
         <p>
-          Go တွင် မည်သည့်အရာမဆို (pointers နှင့် interfaces မှလွဲ၍) methods များ ရှိနိုင်သောကြောင့် မည်သည့်အရာမဆို interface တစ်ခုကို satisfy ဖြစ်စေနိုင်ပါသည်။ ဥပမာအားဖြင့် <code>http.Handler</code> interface ရှိ <code>ServeHTTP</code> method ကို implement လုပ်ထားသော မည်သည့် object မဆို HTTP request များကို လက်ခံဆောင်ရွက်နိုင်ပါသည်။
+          Go တွင် မည်သည့်အရာမဆိုနီးပါး methods များ ရှိနိုင်သောကြောင့် မည်သည့်အရာမဆိုနီးပါး interface တစ်ခုကို satisfy ဖြစ်စေနိုင်ပါသည်။ တစ်ခုမှာ <code>http</code> package တွင် ဖြစ်ပြီး ၎င်းသည် <code>Handler</code> interface ကို define လုပ်ထားပါသည်။ <code>Handler</code> ကို implement လုပ်သော မည်သည့် object မဆို HTTP requests များကို ဆောင်ရွက်နိုင်ပါသည်။
         </p>
         <pre><code>{`type Handler interface {
     ServeHTTP(ResponseWriter, *Request)
 }`}</code></pre>
         <p>
-          အောက်ပါ ဥပမာတွင် function တစ်ခုကို <code>http.Handler</code> အဖြစ် ပြောင်းလဲပေးနိုင်သော <code>HandlerFunc</code> ကို တွေ့နိုင်ပါသည်။
+          <code>ResponseWriter</code> သည် interface တစ်ခုဖြစ်ပြီး client ထံ response ပြန်ရန် လိုအပ်သော methods များကို access ပေးပါသည်။ အဆိုပါ methods များတွင် standard <code>Write</code> method ပါဝင်သောကြောင့် <code>http.ResponseWriter</code> ကို <code>io.Writer</code> အသုံးပြုနိုင်သော မည်သည့်နေရာတွင်မဆို အသုံးပြုနိုင်ပါသည်။ <code>Request</code> သည် client ထံမှ request ကို parsed representation အနေဖြင့် သိမ်းဆည်းထားသော struct ဖြစ်ပါသည်။
         </p>
-        <pre><code>{`type HandlerFunc func(ResponseWriter, *Request)
+        <p>
+          ရိုးရှင်းစေရန်အတွက် POSTs များကို လျစ်လျူရှုပြီး HTTP requests များသည် GETs သာဖြစ်သည်ဟု ယူဆပါမည်။ အဆိုပါ simplification သည် handlers များ သတ်မှတ်ပုံကို သက်ရောက်မှု မရှိပါ။ ဤသည်မှာ page သို့ လာရောက်လည်ပတ်သည့် အကြိမ်အရေအတွက်ကို ရေတွက်ပေးသော handler ၏ ရိုးရှင်းသော implementation ဖြစ်ပါသည်။
+        </p>
+        <pre><code>{`// Simple counter server.
+type Counter struct {
+    n int
+}
 
-func (f HandlerFunc) ServeHTTP(w ResponseWriter, r *Request) {
-    f(w, r)
+func (ctr *Counter) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+    ctr.n++
+    fmt.Fprintf(w, "counter = %d\\n", ctr.n)
 }`}</code></pre>
+        <p>
+          (ကျွန်ုပ်တို့၏ theme နှင့်အညီ၊ <code>Fprintf</code> သည် <code>http.ResponseWriter</code> သို့ မည်သို့ print ထုတ်နိုင်သည်ကို သတိပြုပါ)။ လက်တွေ့ server များတွင် <code>ctr.n</code> သို့ access လုပ်ခြင်းအတွက် concurrent access မှ ကာကွယ်ရန် လိုအပ်ပါလိမ့်မည်။ <code>sync</code> နှင့် <code>atomic</code> packages များကို ကြည့်ရှုနိုင်ပါသည်။
+        </p>
+        <p>
+          ယခု အဆိုပါ server ကို URL tree ရှိ node တစ်ခုသို့ မည်သို့ ချိတ်ဆက်ရမည်ကို ကြည့်ကြပါစို့။
+        </p>
+        <pre><code>{`import "net/http"
+...
+ctr := new(Counter)
+http.Handle("/counter", ctr)`}</code></pre>
+        <p>
+          သို့သော် <code>Counter</code> ကို struct အဖြစ် အဘယ်ကြောင့် ပြုလုပ်ရသနည်း။ Integer တစ်ခုသာ လိုအပ်ပါသည်။ (receiver သည် pointer ဖြစ်ရန် လိုအပ်ပါသည် သို့မှသာ increment သည် caller ထံတွင် visible ဖြစ်မည်ဖြစ်သည်)။
+        </p>
+        <pre><code>{`// Simpler counter server.
+type Counter int
+
+func (ctr *Counter) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+    *ctr++
+    fmt.Fprintf(w, "counter = %d\\n", *ctr)
+}`}</code></pre>
+        <p>
+          အကယ်၍ page တစ်ခုသို့ လည်ပတ်သည့်အခါ program ၏ internal state ကို အသိပေးရန် လိုအပ်ပါက ဘယ်လိုလုပ်မလဲ။ Web page သို့ channel တစ်ခု ချိတ်ဆက်ပါ။
+        </p>
+        <pre><code>{`// A channel that sends a notification on each visit.
+// (Probably want the channel to be buffered.)
+type Chan chan *http.Request
+
+func (ch Chan) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+    ch <- req
+    fmt.Fprint(w, "notification sent")
+}`}</code></pre>
+        <p>
+          နောက်ဆုံးအနေဖြင့် server binary ကို invoke လုပ်သောအခါ အသုံးပြုခဲ့သည့် arguments များကို <code>/args</code> တွင် ပြသလိုသည် ဆိုကြပါစို့။ Arguments များကို print ထုတ်ရန် function တစ်ခု ရေးသားရန်မှာ လွယ်ကူပါသည်။
+        </p>
+        <pre><code>{`func ArgServer() {
+    fmt.Println(os.Args)
+}`}</code></pre>
+        <p>
+          ယင်းကို HTTP server အဖြစ် မည်သို့ ပြောင်းလဲမည်နည်း။ <code>ArgServer</code> ကို တန်ဖိုးအား လျစ်လျူရှုမည့် type တစ်ခုခု၏ method အဖြစ် ပြုလုပ်နိုင်သော်လည်း ပိုမိုသန့်ရှင်းသော နည်းလမ်း ရှိပါသည်။ Pointers နှင့် interfaces များမှလွဲ၍ မည်သည့် type အတွက်မဆို method တစ်ခုကို define လုပ်နိုင်သောကြောင့် function တစ်ခုအတွက် method တစ်ခုကို ရေးသားနိုင်ပါသည်။ <code>http</code> package တွင် ဤ code များ ပါဝင်ပါသည် -
+        </p>
+        <pre><code>{`// The HandlerFunc type is an adapter to allow the use of
+// ordinary functions as HTTP handlers.  If f is a function
+// with the appropriate signature, HandlerFunc(f) is a
+// Handler object that calls f.
+type HandlerFunc func(ResponseWriter, *Request)
+
+// ServeHTTP calls f(w, req).
+func (f HandlerFunc) ServeHTTP(w ResponseWriter, req *Request) {
+    f(w, req)
+}`}</code></pre>
+        <p>
+          <code>HandlerFunc</code> သည် <code>ServeHTTP</code> method ပါဝင်သော type တစ်ခု ဖြစ်သောကြောင့် အဆိုပါ type ၏ values များသည် HTTP requests များကို ဆောင်ရွက်နိုင်ပါသည်။ Method ၏ implementation ကို ကြည့်ပါ - receiver သည် function <code>f</code> ဖြစ်ပြီး method က <code>f</code> ကို ခေါ်ဆိုပါသည်။ ၎င်းသည် ထူးဆန်းနေနိုင်သော်လည်း၊ ဥပမာအားဖြင့် receiver သည် channel တစ်ခုဖြစ်ပြီး method က channel ပေါ်တွင် ပေးပို့ခြင်းနှင့် သိပ်မကွာခြားလှပါ။
+        </p>
+        <p>
+          <code>ArgServer</code> ကို HTTP server တစ်ခုဖြစ်စေရန်၊ ၎င်းကို မှန်ကန်သော signature ရှိစေရန် ဦးစွာ ပြင်ဆင်ရပါမည်။
+        </p>
+        <pre><code>{`// Argument server.
+func ArgServer(w http.ResponseWriter, req *http.Request) {
+    fmt.Fprintln(w, os.Args)
+}`}</code></pre>
+        <p>
+          ယခု <code>ArgServer</code> သည် <code>HandlerFunc</code> နှင့် တူညီသော signature ရှိသွားပြီဖြစ်သောကြောင့် ၎င်း၏ methods များကို access ရရန် အဆိုပါ type သို့ convert လုပ်နိုင်ပါသည်။ ၎င်းကို install လုပ်ရန် code မှာ အကျဥ်းရုံးရလျှင် ဤသို့ ဖြစ်ပါသည်။
+        </p>
+        <pre><code>{`http.Handle("/args", http.HandlerFunc(ArgServer))`}</code></pre>
+        <p>
+          တစ်စုံတစ်ဦးက <code>/args</code> စာမျက်နှာသို့ လည်ပတ်သောအခါ၊ ထိုစာမျက်နှာတွင် install လုပ်ထားသော handler သည် <code>ArgServer</code> value နှင့် <code>HandlerFunc</code> type ရှိပါမည်။ HTTP server သည် အဆိုပါ type ၏ <code>ServeHTTP</code> method ကို <code>ArgServer</code> အား receiver အဖြစ် ထား၍ invoke လုပ်မည်ဖြစ်ပြီး၊ ၎င်းက <code>ArgServer</code> ကို ထပ်မံခေါ်ဆိုမည် ဖြစ်ပါသည်။ ထို့နောက် arguments များကို ပြသပါလိမ့်မည်။
+        </p>
+        <p>
+          ဤအပိုင်းတွင် ကျွန်ုပ်တို့သည် struct, integer, channel နှင့် function တို့မှ HTTP server တစ်ခုကို တည်ဆောက်ခဲ့ပါသည်။ အဘယ်ကြောင့်ဆိုသော် interfaces များသည် (နီးပါး) မည်သည့် types အတွက်မဆို define လုပ်နိုင်သော methods အစုအဝေးများသာ ဖြစ်သောကြောင့် ဖြစ်ပါသည်။
+        </p>
+
       </section>
 
-      <section id="blank-identifier">
+      <section id="blank-identifier" className="animate-in opacity-0">
         <h2>The blank identifier</h2>
         <p>
           <code>for range</code> loops နှင့် maps များတွင် <code>blank identifier (_)</code> အသုံးပြုပုံကို တွေ့ခဲ့ပြီး ဖြစ်ပါသည်။ Blank identifier ကို မည်သည့် type ၏ မည်သည့် value နှင့်မဆို assign သို့မဟုတ် declare လုပ်နိုင်ပြီး အဆိုပါ တန်ဖိုးကို ဘေးကင်းစွာ စွန့်ပစ် (discard) နိုင်ပါသည်။ ၎င်းသည် Unix <code>/dev/null</code> file သို့ ရေးသားခြင်းနှင့် အနည်းငယ် ဆင်တူပါသည် - variable တစ်ခု လိုအပ်သော်လည်း တကယ့်တန်ဖိုးနှင့် မဆိုင်သည့် နေရာတွင် placeholder အဖြစ် အသုံးပြုရန် write-only value တစ်ခု ဖြစ်ပါသည်။
@@ -1200,70 +1363,148 @@ func main() {
 
         <h3 id="interface-checks">Interface checks</h3>
         <p>
-          အထက်တွင် interfaces အကြောင်း ဆွေးနွေးခဲ့သည့်အတိုင်း type တစ်ခုသည် interface တစ်ခုကို implement လုပ်ကြောင်း explicitly declare လုပ်ရန် မလိုအပ်ပါ။ ယင်းအစား type သည် interface ၏ methods များကို implement လုပ်ခြင်းဖြင့်သာ interface ကို implement လုပ်ပါသည်။ လက်တွေ့တွင် interface conversions အများစုသည် static ဖြစ်ပြီး compile time တွင် စစ်ဆေးပါသည်။
+          အထက်တွင် interfaces အကြောင်း ဆွေးနွေးခဲ့သည့်အတိုင်း type တစ်ခုသည် interface တစ်ခုကို implement လုပ်ကြောင်း explicitly declare လုပ်ရန် မလိုအပ်ပါ။ ယင်းအစား type သည် interface ၏ methods များကို implement လုပ်ခြင်းဖြင့်သာ interface ကို implement လုပ်ပါသည်။ လက်တွေ့တွင် interface conversions အများစုသည် static ဖြစ်ပြီး compile time တွင် စစ်ဆေးပါသည်။ ဥပမာအားဖြင့် <code>*os.File</code> တစ်ခုကို <code>io.Reader</code> လိုအပ်သော function သို့ ပေးပို့ခြင်းသည် <code>*os.File</code> က <code>io.Reader</code> interface ကို implement လုပ်ထားခြင်း မရှိပါက compile ဖြစ်မည် မဟုတ်ပါ။
         </p>
         <p>
-          သို့သော် interface checks အချို့သည် run-time တွင် ဖြစ်ပါသည်။ ဥပမာတစ်ခုမှာ <code>encoding/json</code> package ဖြစ်ပြီး <code>Marshaler</code> interface ကို define လုပ်ထားပါသည်။ JSON encoder သည် type assertion ကို အသုံးပြု၍ run time တွင် ဤ property ကို စစ်ဆေးပါသည်။
+          သို့သော် interface checks အချို့သည် run-time တွင် ဖြစ်ပါသည်။ ဥပမာတစ်ခုမှာ <code>encoding/json</code> package ဖြစ်ပြီး <code>Marshaler</code> interface ကို define လုပ်ထားပါသည်။ JSON encoder သည် value တစ်ခုအား လက်ခံရရှိသောအခါ ၎င်းသည် interface ကို implement လုပ်မလုပ် run time တွင် type assertion ဖြင့် စစ်ဆေးပါသည်။
         </p>
         <pre><code>m, ok := val.(json.Marshaler)</code></pre>
         <p>
-          Interface ကိုယ်တိုင်ကို အသုံးမပြုဘဲ type တစ်ခုသည် interface ကို implement လုပ်ထားမထား စစ်ဆေးလိုပါက blank identifier ကို အသုံးပြု၍ type-asserted value ကို လျစ်လျူရှုပါ။
+          Interface ကိုယ်တိုင်ကို အသုံးမပြုဘဲ type တစ်ခုသည် interface ကို implement လုပ်ထားမထား စစ်ဆေးလိုပါက (ဥပမာ error check ၏ အစိတ်အပိုင်းတစ်ခုအဖြစ်) blank identifier ကို အသုံးပြု၍ type-asserted value ကို လျစ်လျူရှုပါ။
         </p>
         <pre><code>{`if _, ok := val.(json.Marshaler); ok {
     fmt.Printf("value %v of type %T implements json.Marshaler\\n", val, val)
-}`}</code></pre>
+} `}</code></pre>
         <p>
-          Type ကို implement လုပ်သော package အတွင်း ၎င်းသည် interface ကို အမှန်တကယ် satisfy ဖြစ်ကြောင်း guarantee လုပ်ရန် လိုအပ်သောအခါ ဤအခြေအနေ ပေါ်ပေါက်ပါသည်။ Type တစ်ခု (ဥပမာ <code>json.RawMessage</code>) သည် custom JSON representation လိုအပ်ပါက <code>json.Marshaler</code> ကို implement လုပ်သင့်ပါသည်။ Implementation မှန်ကန်ကြောင်း guarantee လုပ်ရန် blank identifier ကို အသုံးပြုသော global declaration ကို package တွင် အသုံးပြုနိုင်ပါသည်။
+          Type ကို implement လုပ်သော package အတွင်း ၎င်းသည် interface ကို အမှန်တကယ် satisfy ဖြစ်ကြောင်း guarantee လုပ်ရန် လိုအပ်သောအခါ ဤအခြေအနေ ပေါ်ပေါက်ပါသည်။ အကယ်၍ <code>json.RawMessage</code> ကဲ့သို့ type တစ်ခုသည် custom JSON representation လိုအပ်ပါက <code>json.Marshaler</code> ကို implement လုပ်သင့်ပါသည်။ သို့သော် ၎င်းကို compiler က အလိုအလျောက် verify လုပ်စေမည့် static conversions များ မရှိနိုင်ပါ။ ထိုအခါ implementation မှန်ကန်ကြောင်း guarantee လုပ်ရန် blank identifier ကို အသုံးပြုသော global declaration ကို package အတွင်း အသုံးပြုနိုင်ပါသည်။
         </p>
         <pre><code>var _ json.Marshaler = (*RawMessage)(nil)</code></pre>
         <p>
-          ဤ construct တွင် blank identifier ၏ ပေါ်လာခြင်းက declaration သည် type checking အတွက်သာ ရှိပြီး variable ဖန်တီးရန် မဟုတ်ကြောင်း ညွှန်ပြပါသည်။ သို့သော် interface ကို satisfy ဖြစ်သော type တိုင်းအတွက် ဤသို့ မလုပ်ပါနှင့်။ Convention အရ ထိုသို့သော declarations များကို code ထဲတွင် static conversions များ မရှိသည့်အခါမှသာ အသုံးပြုပါသည်။
+          ဤ declaration တွင် <code>(*RawMessage)(nil)</code> အား <code>Marshaler</code> သို့ convert လုပ်ခြင်းက <code>*RawMessage</code> သည် <code>Marshaler</code> ကို implement လုပ်ရန် လိုအပ်ပြီး ၎င်းကို compile time တွင် စစ်ဆေးပါမည်။ ဤ construct တွင် blank identifier ၏ ပေါ်လာခြင်းက declaration သည် type checking အတွက်သာ ရှိပြီး variable ဖန်တီးရန် မဟုတ်ကြောင်း ညွှန်ပြပါသည်။ သို့သော် interfaces များစွာကို satisfy ဖြစ်သော type တိုင်းအတွက် ဤသို့ မလုပ်ပါနှင့်။ Convention အရ ထိုသို့သော declarations များကို code ထဲတွင် static conversions များ မရှိသည့်အခါမှသာ အသုံးပြုပါသည်။
         </p>
+
       </section>
 
-      <section id="embedding">
+      <section id="embedding" className="animate-in opacity-0">
         <h2>Embedding</h2>
         <p>
           Go တွင် typical subclassing (inheritance) concept မရှိသော်လည်း struct သို့မဟုတ် interface များအတွင်း အခြား types များကို <code>embed</code> လုပ်ခြင်းဖြင့် အခြား implementation များမှ အစိတ်အပိုင်းများကို "ချေးယူ (borrow)" အသုံးပြုနိုင်ပါသည်။
         </p>
         <p>
-          Interface embedding သည် အလွန်ရိုးရှင်းပါသည်။ အောက်ပါ ဥပမာတွင် <code>ReadWriter</code> interface သည် <code>Reader</code> နှင့် <code>Writer</code> နှစ်ခုလုံး၏ methods များကို ပိုင်ဆိုင်သွားမည် ဖြစ်ပါသည်။
+          Interface embedding သည် အလွန်ရိုးရှင်းပါသည်။ ကျွန်ုပ်တို့ <code>io.Reader</code> နှင့် <code>io.Writer</code> interfaces များကို ယခင်က ဖော်ပြခဲ့ပြီး ဖြစ်ပါသည် -
         </p>
-        <pre><code>{`type ReadWriter interface {
+        <pre><code>{`type Reader interface {
+    Read(p []byte) (n int, err error)
+}
+
+type Writer interface {
+    Write(p []byte) (n int, err error)
+}`}</code></pre>
+        <p>
+          <code>io</code> package သည် အဆိုပါ methods အများအပြားကို implement လုပ်နိုင်သော objects များကို specify လုပ်သည့် အခြား interfaces များကိုလည်း export လုပ်ပါသည်။ ဥပမာအားဖြင့် <code>Read</code> နှင့် <code>Write</code> နှစ်ခုလုံး ပါဝင်သော <code>io.ReadWriter</code> ရှိပါသည်။ ကျွန်ုပ်တို့သည် methods နှစ်ခုကို explicit ရေးသား၍ <code>io.ReadWriter</code> ကို specify လုပ်နိုင်သော်လည်း၊ interface နှစ်ခုကို embed လုပ်၍ အသစ်တစ်ခု တည်ဆောက်ခြင်းက ပိုမိုလွယ်ကူပြီး evocative ဖြစ်စေပါသည်။
+        </p>
+        <pre><code>{`// ReadWriter is the interface that combines the Reader and Writer interfaces.
+type ReadWriter interface {
     Reader
     Writer
 }`}</code></pre>
         <p>
-          Struct embedding သည်လည်း ထိုနည်းတူပင် ဖြစ်ပါသည်။ အကယ်၍ anonymous field အဖြစ် ထည့်သွင်းလိုက်ပါက အဆိုပါ field ၏ methods များသည် outer struct ၏ methods များကဲ့သို့ တိုက်ရိုက် အသုံးပြုနိုင်မည် ဖြစ်ပါသည်။
+          ၎င်းသည် မြင်ရသည့်အတိုင်းပင် ဖြစ်ပါသည် - <code>ReadWriter</code> သည် <code>Reader</code> လုပ်နိုင်သမျှနှင့် <code>Writer</code> လုပ်နိုင်သမျှကို လုပ်ဆောင်နိုင်ပါသည်။ ၎င်းသည် embedded interfaces များ၏ union ဖြစ်ပါသည်။ Interfaces များကိုသာ interfaces များအတွင်း embed လုပ်နိုင်ပါသည်။
         </p>
-        <pre><code>{`type Job struct {
-    *log.Logger
-}
-
-func (job *Job) Logf(format string, args ...interface{}) {
-    job.Logger.Logf("%q: %s", job.Command, fmt.Sprintf(format, args...))
+        <p>
+          အလားတူ အယူအဆကို structs များတွင်လည်း အသုံးပြုနိုင်သော်လည်း ပိုမိုကျယ်ပြန့်သော သက်ရောက်မှုများ ရှိပါသည်။ <code>bufio</code> package တွင် <code>bufio.Reader</code> နှင့် <code>bufio.Writer</code> ဟူသော struct types နှစ်ခု ရှိပါသည်။ ၎င်းတို့သည် <code>io</code> package မှ analogous interfaces များကို implement လုပ်ထားကြပါသည်။ ထို့အပြင် <code>bufio</code> သည် reader နှင့် writer ကို struct တစ်ခုတည်းတွင် embedding အသုံးပြု၍ ပေါင်းစပ်ထားသော buffered reader/writer ကိုလည်း implement လုပ်ထားပါသည်။ ၎င်းသည် types များကို struct အတွင်း ထည့်သွင်းထားသော်လည်း field names များ မပေးထားပါ။
+        </p>
+        <pre><code>{`// ReadWriter stores pointers to a Reader and a Writer.
+// It implements io.ReadWriter.
+type ReadWriter struct {
+    *Reader  // *bufio.Reader
+    *Writer  // *bufio.Writer
 }`}</code></pre>
         <p>
-          ဤနေရာတွင် <code>Job</code> သည် <code>log.Logger</code> ၏ <code>Log</code>, <code>Logf</code> စသော methods များကို တိုက်ရိုက် ခေါ်ယူနိုင်စွမ်း ရှိသွားပါသည်။
+          Embedded elements များသည် pointers to structs များ ဖြစ်ကြပြီး ၎င်းတို့ကို အသုံးမပြုမီ valid structs များသို့ point လုပ်ရန် initialize လုပ်ထားရပါမည်။ <code>ReadWriter</code> struct ကို ဤသို့လည်း ရေးသားနိုင်ပါသည် -
+        </p>
+        <pre><code>{`type ReadWriter struct {
+    reader *Reader
+    writer *Writer
+}`}</code></pre>
+        <p>
+          သို့သော် field များ၏ methods များကို promote လုပ်ရန်နှင့် <code>io</code> interfaces များကို satisfy ဖြစ်ရန်အတွက် ကျွန်ုပ်တို့သည် forwarding methods များကို ဤသို့ ပေးဆောင်ရန် လိုအပ်ပါလိမ့်မည် -
+        </p>
+        <pre><code>{`func (rw *ReadWriter) Read(p []byte) (n int, err error) {
+    return rw.reader.Read(p)
+}`}</code></pre>
+        <p>
+          Structs များကို တိုက်ရိုက် embed လုပ်ခြင်းဖြင့် ဤသို့သော bookkeeping များကို ရှောင်ရှားနိုင်ပါသည်။ Embedded types များ၏ methods များသည် အလကား ရရှိလာမည် ဖြစ်ပါသည်။ ဆိုလိုသည်မှာ <code>bufio.ReadWriter</code> သည် <code>bufio.Reader</code> နှင့် <code>bufio.Writer</code> တို့၏ methods များကို ပိုင်ဆိုင်ရုံသာမက interface သုံးခုလုံး (<code>io.Reader</code>, <code>io.Writer</code>, နှင့် <code>io.ReadWriter</code>) ကိုပါ satisfy ဖြစ်စေပါသည်။
+        </p>
+        <p>
+          Embedding သည် subclassing နှင့် ကွဲပြားသော အရေးကြီးသည့်အချက်တစ်ခု ရှိပါသည်။ Type တစ်ခုကို embed လုပ်သောအခါ၊ အဆိုပါ type ၏ methods များသည် outer type ၏ methods များ ဖြစ်လာသော်လည်း၊ ၎င်းတို့ကို invoke လုပ်သောအခါ method ၏ receiver သည် outer type မဟုတ်ဘဲ inner type ဖြစ်နေပါလိမ့်မည်။ ကျွန်ုပ်တို့၏ ဥပမာတွင် <code>bufio.ReadWriter</code> ၏ <code>Read</code> method ကို invoke လုပ်သောအခါ၊ ၎င်းသည် အထက်တွင် ရေးသားခဲ့သော forwarding method နှင့် အကျိုးသက်ရောက်မှု အတူတူပင် ဖြစ်ပါသည် - receiver သည် <code>ReadWriter</code> မဟုတ်ဘဲ <code>ReadWriter</code> ၏ <code>reader</code> field သာ ဖြစ်ပါသည်။
+        </p>
+        <p>
+          Embedding သည် ရိုးရှင်းသော အဆင်ပြေချောမွေ့မှုတစ်ခုလည်း ဖြစ်နိုင်ပါသည်။ ဤဥပမာတွင် embedded field ကို regular, named field နှင့်အတူ ယှဥ်တွဲပြထားပါသည်။
+        </p>
+        <pre><code>{`type Job struct {
+    Command string
+    *log.Logger
+}`}</code></pre>
+        <p>
+          ယခု <code>Job</code> type တွင် <code>*log.Logger</code> ၏ <code>Print</code>, <code>Printf</code>, <code>Println</code> နှင့် အခြား methods များ ရှိသွားပြီ ဖြစ်ပါသည်။ ကျွန်ုပ်တို့သည် <code>Logger</code> ကို field name ပေးနိုင်သော်လည်း ထိုသို့လုပ်ရန် မလိုအပ်ပါ။ ယခုအခါ initialize လုပ်ပြီးပါက <code>Job</code> အတွင်းသို့ print ထုတ်နိုင်ပါသည်။
+        </p>
+        <pre><code>{`job.Println("starting now...")`}</code></pre>
+        <p>
+          <code>Logger</code> သည် <code>Job</code> struct ၏ regular field တစ်ခု ဖြစ်နေဆဲဖြစ်သောကြောင့် ၎င်းကို <code>Job</code> ၏ constructor အတွင်း ပုံမှန်အတိုင်း initialize လုပ်နိုင်ပါသည် -
+        </p>
+        <pre><code>{`func NewJob(command string, logger *log.Logger) *Job {
+    return &Job{command, logger}
+}`}</code></pre>
+        <p>
+          သို့မဟုတ် composite literal ကို အသုံးပြုနိုင်ပါသည် -
+        </p>
+        <pre><code>{`job := &Job{command, log.New(os.Stderr, "Job: ", log.Ldate)}`}</code></pre>
+        <p>
+          အကယ်၍ embedded field ကို တိုက်ရိုက်ရည်ညွှန်းရန် လိုအပ်ပါက၊ package qualifier ကို လျစ်လျူရှု၍ field ၏ type name သည် field name အဖြစ် အလုပ်လုပ်ပါသည်။ ကျွန်ုပ်တို့၏ <code>ReadWriter</code> struct တွင် <code>Read</code> method အတွင်း လုပ်ဆောင်ခဲ့သကဲ့သို့ ဖြစ်ပါသည်။ ဤနေရာတွင် <code>Job</code> variable <code>job</code> ၏ <code>*log.Logger</code> ကို access လုပ်ရန် လိုအပ်ပါက <code>job.Logger</code> ဟု ရေးသားရပါမည်။ ၎င်းသည် <code>Logger</code> ၏ methods များကို refine လုပ်လိုသောအခါတွင် အသုံးဝင်ပါသည်။
+        </p>
+        <pre><code>{`func (job *Job) Printf(format string, args ...interface{}) {
+    job.Logger.Printf("%q: %s", job.Command, fmt.Sprintf(format, args...))
+}`}</code></pre>
+        <p>
+          Embedding types များတွင် name conflicts ဝင်လာနိုင်သော ပြဿနာ ရှိသော်လည်း ၎င်းတို့ကို ရှင်းလင်းရန် rules များမှာ ရိုးရှင်းပါသည်။ ပထမ၊ field သို့မဟုတ် method <code>X</code> သည် type ၏ ပိုမိုနက်ရှိုင်းသော အစိတ်အပိုင်းရှိ အခြား <code>X</code> များကို hide လုပ်သွားပါမည်။ အကယ်၍ <code>log.Logger</code> တွင် <code>Command</code> ဟူသော field သို့မဟုတ် method ပါဝင်နေပါက <code>Job</code> ၏ <code>Command</code> field က ၎င်းကို ဖုံးကွယ်ထားမည် ဖြစ်ပါသည်။
+        </p>
+        <p>
+          ဒုတိယ၊ အကယ်၍ တူညီသောအမည်သည် တူညီသော nesting level တွင် ပေါ်လာပါက ၎င်းသည် များသောအားဖြင့် error ဖြစ်ပါသည်။ ဥပမာ - <code>Job</code> struct တွင် <code>Logger</code> ဟူသော အခြား field သို့မဟုတ် method ပါရှိနေပါက <code>log.Logger</code> ကို embed လုပ်ခြင်းသည် မှားယွင်းပါလိမ့်မည်။ သို့သော် အကယ်၍ duplicate name ကို ပရိုဂရမ်အတွင်း type definition ပြင်ပမှ မည်သည့်နေရာတွင်မှ မသုံးစွဲထားပါက အဆင်ပြေပါသည်။ ၎င်းသည် ပြင်ပမှ embed လုပ်ထားသော types များသို့ ပြောင်းလဲမှုများ ပြုလုပ်ခြင်းအတွက် အကာအကွယ်အချို့ ပေးပါသည်။
         </p>
       </section>
 
-      <section id="concurrency">
+
+      <section id="concurrency" className="animate-in opacity-0">
         <h2>Concurrency</h2>
 
         <h3 id="share-by-communicating">Share by communicating</h3>
         <p>
-          Concurrent programming သည် များသောအားဖြင့် shared variables များသို့ access လုပ်ရန်အတွက် ခက်ခဲသော synchronization (ဥပမာ - mutexes) များ လိုအပ်သောကြောင့် စိန်ခေါ်မှု တစ်ခု ဖြစ်ပါသည်။ Go ၌မူ ကွဲပြားသော ချဥ်းကပ်မှု တစ်ခုကို အသုံးပြုထားပါသည်။ ၎င်းမှာ shared variables များကို channel များမှတစ်ဆင့် ပေးပို့ခြင်း ဖြစ်ပါသည်။ တစ်ချိန်တည်းတွင် goroutine တစ်ခုတည်းကသာ value ကို access လုပ်နိုင်သောကြောင့် data races များ မဖြစ်ပေါ်နိုင်ပါ။
+          Concurrent programming သည် shared variables များသို့ access လုပ်ရန်အတွက် လိုအပ်သော နည်းလမ်းများ၏ ရှုပ်ထွေးမှုများကြောင့် ပတ်ဝန်းကျင် အများအပြားတွင် ခက်ခဲစေပါသည်။ Go သည် shared values များကို channel များပေါ်တွင် ပေးပို့ပြီး၊ အမှန်တကယ်တွင် သီးခြား execution threads များက တက်ကြွစွာ share လုပ်ခြင်း မရှိသော ကွဲပြားသော ချဥ်းကပ်မှုတစ်ခုကို အားပေးပါသည်။ ပေးထားသော အချိန်တစ်ခုတွင် goroutine တစ်ခုတည်းကသာ value ကို access လုပ်နိုင်ပါသည်။ Design အရ data races များ မဖြစ်ပေါ်နိုင်ပါ။ ဤသို့သော စဥ်းစားတွေးခေါ်ပုံကို အားပေးရန် ကျွန်ုပ်တို့က ဆောင်ပုဒ်တစ်ခု ထုတ်ထားပါသည် -
+        </p>
+        <p className="text-center font-semibold italic text-go-dark-blue my-8">
+          Do not communicate by sharing memory; instead, share memory by communicating.
         </p>
         <p>
-          Go ၏ ဆောင်ပုဒ်မှာ - <strong>"Do not communicate by sharing memory; instead, share memory by communicating."</strong> ဖြစ်ပါသည်။
+          ဤချဥ်းကပ်မှုကို လွန်ကဲစွာ အသုံးပြုနိုင်ပါသည်။ ဥပမာ - reference counts များကို integer variable တစ်ခုပတ်လည်တွင် mutex ထည့်ထားခြင်းက အကောင်းဆုံး ဖြစ်နိုင်ပါသည်။ သို့သော် high-level ချဥ်းကပ်မှုတစ်ခုအနေဖြင့်၊ access ကို ထိန်းချုပ်ရန် channel များကို အသုံးပြုခြင်းက ရှင်းလင်းပြီး မှန်ကန်သော ပရိုဂရမ်များကို ရေးသားရန် ပိုမိုလွယ်ကူစေပါသည်။
         </p>
+        <p>
+          ဤ model အကြောင်းကို စဥ်းစားရန် နည်းလမ်းတစ်ခုမှာ CPU တစ်ခုပေါ်တွင် run နေသော ပုံမှန် single-threaded program ကို စဥ်းစားခြင်း ဖြစ်ပါသည်။ ၎င်းတွင် synchronization primitives များ မလိုအပ်ပါ။ ယခု နောက်ထပ် instance တစ်ခုကို run ပါ၊ ၎င်းလည်း synchronization မလိုအပ်ပါ။ ယခု အဆိုပါ နှစ်ခုအား ဆက်သွယ်ခိုင်းပါ - အကယ်၍ communication သည် synchronizer ဖြစ်နေပါက အခြား synchronization များ ထပ်မံ မလိုအပ်တော့ပါ။ Unix pipelines များသည် ဤ model နှင့် ကောင်းစွာ ကိုက်ညီပါသည်။ Go ၏ concurrency ချဥ်းကပ်မှုသည် Hoare ၏ Communicating Sequential Processes (CSP) မှ ဆင်းသက်လာသော်လည်း၊ ၎င်းကို Unix pipes များ၏ type-safe generalization တစ်ခုအဖြစ်လည်း မြင်တွေ့နိုင်ပါသည်။
+        </p>
+
 
         <h3 id="goroutines">Goroutines</h3>
         <p>
-          Goroutine သည် အခြား goroutines များနှင့် တစ်ပြိုင်နက်တည်း (concurrently) အလုပ်လုပ်သော function တစ်ခု ဖြစ်ပါသည်။ ၎င်းတို့သည် OS threads များထက် ပိုမိုပေါ့ပါး (lightweight) ပြီး heap တွင် allocate လုပ်ထားသော stack space အနည်းငယ်သာ အစပိုင်းတွင် အသုံးပြုပါသည်။ <code>go</code> keyword ကို အသုံးပြု၍ goroutine တစ်ခုကို စတင်နိုင်ပါသည်။
+          ၎င်းတို့ကို <code>goroutines</code> ဟု ခေါ်ဆိုရခြင်းမှာ threads, coroutines, processes အစရှိသော ရှိပြီးသား အသုံးအနှုန်းများသည် မမှန်ကန်သော အဓိပ္ပာယ်သက်ရောက်မှုများကို ဖြစ်ပေါ်စေနိုင်သောကြောင့် ဖြစ်ပါသည်။ Goroutine တွင် ရိုးရှင်းသော model ရှိပါသည် - ၎င်းသည် တစ်ူတည်းသော address space အတွင်းရှိ အခြား goroutines များနှင့် တစ်ပြိုင်နက်တည်း (concurrently) execute လုပ်နေသော function တစ်ခု ဖြစ်ပါသည်။ ၎င်းသည် lightweight ဖြစ်ပြီး stack space allocate လုပ်ခြင်းထက် သိပ်မပိုသော ကုန်ကျစရိတ်သာ ရှိပါသည်။ Stack များသည် သေးငယ်စွာ စတင်သောကြောင့် ဈေးသက်သာပြီး လိုအပ်သလို heap storage ကို allocate (နှင့် free) လုပ်ခြင်းဖြင့် ကြီးထွားလာပါသည်။
         </p>
-        <pre><code>go list.Sort() // list.Sort() ကို concurrent စတင်သည်</code></pre>
+        <p>
+          Goroutines များသည် multiple OS threads များပေါ်တွင် multiplexed လုပ်ထားသောကြောင့်၊ I/O စောင့်ဆိုင်းနေစဉ် blocking ဖြစ်သွားပါက အခြား goroutines များက ဆက်လက် run နိုင်ပါသည်။ ၎င်းတို့၏ design သည် thread ဖန်တီးခြင်းနှင့် စီမံခန့်ခွဲခြင်းတို့၏ ရှုပ်ထွေးမှုများကို ဖုံးကွယ်ပေးပါသည်။
+        </p>
+        <p>
+          Function သို့မဟုတ် method call တစ်ခု၏ ရှေ့တွင် <code>go</code> keyword ကို ထည့်သွင်းခြင်းဖြင့် call ကို goroutine အသစ်တစ်ခုတွင် run နိုင်ပါသည်။ Call ပြီးဆုံးသောအခါ goroutine သည် အသံတိတ် ထွက်ခွာသွားပါမည်။ (၎င်း၏ အကျိုးသက်ရောက်မှုသည် command တစ်ခုကို background တွင် run ရန် Unix shell ၏ <code>&</code> notation နှင့် ဆင်တူပါသည်)။
+        </p>
+        <pre><code>{`go list.Sort()  // run list.Sort concurrently; don't wait for it.`}</code></pre>
+
         <p>
           Function literals (anonymous functions) များကိုလည်း goroutines များအဖြစ် အသုံးပြုနိုင်ပါသည်။
         </p>
@@ -1276,48 +1517,168 @@ func (job *Job) Logf(format string, args ...interface{}) {
 
         <h3 id="channels">Channels</h3>
         <p>
-          Maps များကဲ့သို့ပင် channel များကို <code>make</code> ဖြင့် allocate လုပ်ရပါသည်။ ၎င်းတို့သည် underlying data structure ၏ reference များ ဖြစ်ကြပါသည်။
+          Maps များကဲ့သို့ပင် channel များကို <code>make</code> ဖြင့် allocate လုပ်ရပြီး၊ ရရှိလာသော value သည် underlying data structure သို့ reference အဖြစ် လုပ်ဆောင်ပါသည်။ အကယ်၍ optional integer parameter ပေးထားပါက ၎င်းသည် channel အတွက် buffer size ကို သတ်မှတ်ပေးပါသည်။ Default မှာ သုည ဖြစ်ပြီး unbuffered သို့မဟုတ် synchronous channel အတွက် ဖြစ်ပါသည်။
         </p>
-        <pre><code>{`ci := make(chan int)            // unbuffered channel
-cs := make(chan *os.File, 100)  // buffered channel`}</code></pre>
+        <pre><code>{`ci := make(chan int)            // unbuffered channel of integers
+cj := make(chan int, 0)         // unbuffered channel of integers
+cs := make(chan *os.File, 100)  // buffered channel of pointers to Files`}</code></pre>
         <p>
-          Unbuffered channels များသည် communication (ပေးပို့ခြင်းနှင့် လက်ခံခြင်း) ကို sync ဖြစ်စေပါသည်။ Buffered channels များမှာမူ သတ်မှတ်ထားသော capacity ပြည့်သွားသည်အထိ ပေးပို့ခြင်းကို မရပ်တန့်ဘဲ ဆက်လက်လုပ်ဆောင်နိုင်စေပါသည်။
+          Unbuffered channels များသည် communication (တန်ဖိုးဖလှယ်ခြင်း) ကို synchronization (တွက်ချက်မှုနှစ်ခု (goroutines) သည် သိရှိထားသော state တစ်ခုတွင် ရှိနေစေရန် အာမခံခြင်း) နှင့် ပေါင်းစပ်ထားပါသည်။
         </p>
+        <p>
+          Channel များကို အသုံးပြု၍ ကောင်းမွန်သော idioms အများအပြား ရှိပါသည်။ ယခင်အပိုင်းတွင် sort တစ်ခုကို background တွင် launch လုပ်ခဲ့ပါသည်။ Channel တစ်ခုက launching goroutine အား sort ပြီးဆုံးသည်အထိ စောင့်ဆိုင်းရန် ခွင့်ပြုနိုင်ပါသည်။
+        </p>
+        <pre><code>{`c := make(chan int)  // Allocate a channel.
+// Start the sort in a goroutine; when it completes, signal on the channel.
+go func() {
+    list.Sort()
+    c <- 1  // Send a signal; value does not matter.
+}()
+doSomethingForAWhile()
+<-c   // Wait for sort to finish; discard sent value.`}</code></pre>
+        <p>
+          Receivers များသည် လက်ခံရရှိမည့် data မရှိမချင်း block ဖြစ်နေပါမည်။ အကယ်၍ channel သည် unbuffered ဖြစ်ပါက၊ sender သည် receiver က တန်ဖိုးကို လက်ခံရရှိသည်အထိ block ဖြစ်နေပါလိမ့်မည်။ အကယ်၍ channel တွင် buffer ရှိပါက၊ sender သည် တန်ဖိုးအား buffer သို့ copy လုပ်ပြီးသည်အထိသာ block ဖြစ်ပါမည်။ Buffer ပြည့်နေပါက receiver တစ်စုံတစ်ဦးက တန်ဖိုးတစ်ခုကို မထုတ်ယူမချင်း စောင့်ဆိုင်းရမည်ကို ဆိုလိုပါသည်။
+        </p>
+        <p>
+          Buffered channel ကို semaphore တစ်ခုကဲ့သို့ အသုံးပြုနိုင်ပါသည် - ဥပမာ throughput ကို ကန့်သတ်ရန် ဖြစ်ပါသည်။ ဤဥပမာတွင်၊ အဝင် request များကို <code>handle</code> သို့ ပေးပို့လိုက်ပါသည်။ ၎င်းက channel အတွင်းသို့ တန်ဖိုးတစ်ခု ပို့ဆောင်ကာ request ကို process လုပ်ပြီး၊ နောက်ထပ် consumer အတွက် “semaphore” အား အဆင်သင့်ဖြစ်စေရန် channel ထံမှ တန်ဖိုးတစ်ခု ပြန်လည် လက်ခံပါသည်။ Channel buffer ၏ capacity က <code>process</code> ဆီသို့ တစ်ပြိုင်နက်တည်း ခေါ်ဆိုမှု အရေအတွက်ကို ကန့်သတ်ပေးပါသည်။
+        </p>
+        <pre><code>{`var sem = make(chan int, MaxOutstanding)
+
+func handle(r *Request) {
+    sem <- 1    // Wait for active queue to drain.
+    process(r)  // May take a long time.
+    <-sem       // Done; enable next request to run.
+}
+
+func Serve(queue chan *Request) {
+    for {
+        req := <-queue
+        go handle(req)  // Don't wait for handle to finish.
+    }
+}`}</code></pre>
+        <p>
+          <code>MaxOutstanding</code> အရေအတွက်ရှိသော handlers များက <code>process</code> ကို execute လုပ်နေပြီဆိုလျှင်၊ နောက်ထပ် ပို့ဆောင်မှုများသည် buffer ထဲမှ handler တစ်ဦးဦး ပြီးဆုံး၍ receiver အဖြစ် လုပ်ဆောင်သည်အထိ block ဖြစ်နေပါလိမ့်မည်။
+        </p>
+        <p>
+          သို့သော် ဤ design တွင် ပြဿနာတစ်ခု ရှိပါသည် - <code>Serve</code> သည် အဝင် request တိုင်းအတွက် goroutine အသစ်တစ်ခု ဖန်တီးနေခြင်း ဖြစ်ပါသည်၊ ၎င်းတို့အနက် <code>MaxOutstanding</code> သာလျှင် ပေးထားသော အချိန်တစ်ခုတွင် run နိုင်သော်လည်း ဖြစ်ပါသည်။ ရလဒ်အနေဖြင့် request များ အလွန်မြန်ဆန်စွာ ဝင်ရောက်လာပါက program သည် အကန့်အသတ်မရှိသော resources များကို စားသုံးသွားနိုင်ပါသည်။ <code>Serve</code> အား goroutines ဖန်တီးမှုကို ကန့်သတ်ခိုင်းခြင်းဖြင့် ၎င်းကို ဖြေရှင်းနိုင်ပါသည် -
+        </p>
+        <pre><code>{`func Serve(queue chan *Request) {
+    for req := range queue {
+        sem <- 1
+        go func() {
+            process(req)
+            <-sem
+        }()
+    }
+}`}</code></pre>
+        <p>
+          (သတိပြုရန် - Go version 1.22 မတိုင်မီတွင် ဤ code ၌ bug တစ်ခု ရှိပါသည် - loop variable သည် goroutines အားလုံးတွင် shared ဖြစ်နေခြင်း ဖြစ်သည်။ အသေးစိတ်ကို Go wiki တွင် ကြည့်ရှုနိုင်ပါသည်။)
+        </p>
+        <p>
+          Resources များကို ကောင်းမွန်စွာ စီမံခန့်ခွဲနိုင်သော အခြားနည်းလမ်းတစ်ခုမှာ Request channel မှ ဖတ်နေသော သတ်မှတ်ထားသော handle goroutines အရေအတွက်ကို launch လုပ်ခြင်း ဖြစ်ပါသည်။ Goroutines အရေအတွက်က <code>process</code> ဆီသို့ simultaneous calls အရေအတွက်ကို ကန့်သတ်ပေးပါမည်။ ဤ <code>Serve</code> function သည် exit လုပ်ရန် အသိပေးမည့် channel တစ်ခုကိုလည်း လက်ခံပါသည် - goroutines များကို launch လုပ်ပြီးနောက် ၎င်းသည် အဆိုပါ channel မှ လက်ခံရရှိသည်အထိ block ဖြစ်နေပါမည်။
+        </p>
+        <pre><code>{`func handle(queue chan *Request) {
+    for r := range queue {
+        process(r)
+    }
+}
+
+func Serve(clientRequests chan *Request, quit chan bool) {
+    // Start handlers
+    for i := 0; i < MaxOutstanding; i++ {
+        go handle(clientRequests)
+    }
+    <-quit  // Wait to be told to exit.
+}`}</code></pre>
+
 
         <h3 id="channels-of-channels">Channels of channels</h3>
         <p>
-          Go တွင် channel သည် first-class value ဖြစ်သောကြောင့် ၎င်းကို အခြား channel များအတွင်း ပေးပို့ခြင်း (passing around) ပြုလုပ်နိုင်ပါသည်။ ၎င်းသည် server တစ်ခုမှ client ထံသို့ message ပြန်ပို့ရန်အတွက် response channel တစ်ခုကို request နှင့်အတူ ထည့်ပေးလိုက်သော pattern မျိုးတွင် အလွန် အသုံးဝင်ပါသည်။
+          Go ၏ အရေးပါဆုံးသော အင်္ဂါရပ်တစ်ခုမှာ channel သည် အခြား မည်သည့် types များကဲ့သို့ပင် first-class value တစ်ခု ဖြစ်ခြင်းပင် ဖြစ်ပါသည်။ ဤအင်္ဂါရပ်ကို များသောအားဖြင့် safe, parallel demultiplexing ပြုလုပ်ရန် အသုံးပြုပါသည်။
+        </p>
+        <p>
+          ယခင်အပိုင်းရှိ <code>handle</code> ဥပမာတွင် <code>process</code> သည် request တစ်ခုအတွက် အကောင်းဆုံး handler ဖြစ်သော်လည်း၊ ၎င်းသည် client ထံသို့ reply ပြန်ပေးရန် မဖြစ်နိုင်ပါ။ Reply ပြန်ပေးရန်အတွက် request တွင် channel တစ်ခု ပါဝင်ရန် လိုအပ်ပါမည်။ ဤသည်မှာ <code>Request</code> type ၏ definition အသစ်ဖြစ်ပါသည်။
         </p>
         <pre><code>{`type Request struct {
     args        []int
     f           func([]int) int
-    replyChan   chan int
-}
-
-func (r *Request) handle() {
-    r.replyChan <- r.f(r.args)
+    resultChan  chan int
 }`}</code></pre>
+        <p>
+          Client က function တစ်ခု၊ ၎င်း၏ arguments များနှင့် result လက်ခံမည့် channel တစ်ခုကို request object အတွင်း ထည့်သွင်းပေးလိုက်ပါသည်။
+        </p>
+        <pre><code>{`func (r *Request) handle() {
+    r.resultChan <- r.f(r.args)
+}`}</code></pre>
+        <p>
+          Server ဘက်တွင်မူ handle function အား ပြောင်းလဲရန် လိုအပ်ပါလိမ့်မည် -
+        </p>
+        <pre><code>{`func handle(queue chan *Request) {
+    for r := range queue {
+        r.handle()
+    }
+}`}</code></pre>
+        <p>
+          ၎င်းကို လက်တွေ့အသုံးပြုပုံမှာ သိသာထင်ရှားပါသည် -
+        </p>
+        <pre><code>{`clientRequests := make(chan *Request)
+go handle(clientRequests)
+
+// ...
+
+replyChan := make(chan int)
+req := &Request{[]int{3, 4, 5}, sum, replyChan}
+clientRequests <- req
+// Wait for response.
+fmt.Printf("answer: %d\\n", <-replyChan)`}</code></pre>
+
 
         <h3 id="parallelization">Parallelization</h3>
         <p>
-          အကယ်၍ တွက်ချက်မှုတစ်ခုကို အမှီအခိုကင်းသော အစိတ်အပိုင်းများအဖြစ် ခွဲထုတ်နိုင်ပါက ၎င်းတို့ကို CPU cores အများအပြားပေါ်တွင် parallel လုပ်ဆောင်နိုင်ပါသည်။ <code>runtime.NumCPU()</code> ကို အသုံးပြု၍ core အရေအတွက်ကို သိရှိနိုင်ပါသည်။
+          ဤ concurrency အယူအဆများကို အသုံးပြု၍ တွက်ချက်မှုတစ်ခုအား multiple CPU cores များပေါ်တွင် parallel လုပ်ဆောင်ရန် အသုံးပြုနိုင်ပါသည် - ဆိုလိုသည်မှာ တွက်ချက်မှုကို သီးခြားစီ လုပ်ဆောင်နိုင်သော အစိတ်အပိုင်းများအဖြစ် ခွဲထုတ်ပြီး အစိတ်အပိုင်းတစ်ခုစီ ပြီးဆုံးချိန်တွင် channel တစ်ခုမှတစ်ဆင့် ပေါင်းစပ်ခြင်း ဖြစ်ပါသည်။
         </p>
-        <pre><code>{`var numCPU = runtime.NumCPU()
+        <p>
+          ကျွန်ုပ်တို့တွင် vector တစ်ခုပေါ်ရှိ items များပေါ်တွင် expensive operation တစ်ခု လုပ်ဆောင်ရန် ရှိသည် ဆိုကြပါစို့။ Item တစ်ခုစီ၏ result သည် အခြား items များအပေါ် မူတည်ခြင်း မရှိပါ။
+        </p>
+        <pre><code>{`type Vector []float64
+
+// Apply the operation to v[i], v[i+1] ... v[n-1].
+func (v Vector) DoSome(i, n int, u Vector, c chan int) {
+    for ; i < n; i++ {
+        v[i] += u.Op(v[i])
+    }
+    c <- 1    // signal that this piece is done
+}
+`}</code></pre>
+        <p>
+          ကျွန်ုပ်တို့သည် အစိတ်အပိုင်းများကို CPU တစ်ခုစီအတွက် တစ်ခုနှုန်းဖြင့် loop တစ်ခုအတွင်း launch လုပ်ပါမည်။ ၎င်းတို့သည် မည်သည့် order ဖြင့်မဆို ပြီးဆုံးနိုင်သော်လည်း ၎င်းမှာ အရေးမကြီးပါ။ ကျွန်ုပ်တို့သည် goroutines အားလုံး launch ပြီးနောက် ပြီးဆုံးကြောင်း signal များကို channel မှ ရေတွက်ရုံသာ ဖြစ်ပါသည်။
+        </p>
+        <pre><code>{`const numCPU = 4 // number of CPU cores
 
 func (v Vector) DoAll(u Vector) {
-    c := make(chan int, numCPU)
+    c := make(chan int, numCPU)  // Buffering optional but sensible.
     for i := 0; i < numCPU; i++ {
-        go v.doSome(i, u, c)
+        go v.DoSome(i*len(v)/numCPU, (i+1)*len(v)/numCPU, u, c)
     }
-    // Wait for all to finish
+    // Drain the channel.
     for i := 0; i < numCPU; i++ {
-        <-c
+        <-c    // wait for one task to complete
     }
-}`}</code></pre>
+    // All done.
+}
+`}</code></pre>
+        <p>
+          လက်ရှိ Go implementation တွင် အသုံးပြုသူက binary အတွင်း execute လုပ်နိုင်မည့် user-defined simultaneous cores အရေအတွက်ကို သတ်မှတ်ပေးရန် လိုအပ်ပါသည်။ <code>runtime.GOMAXPROCS</code> variable သို့မဟုတ် တူညီသောအမည်ရှိသော environment variable အား အသုံးပြုနိုင်ပါသည်။ ၎င်းသည် တပြိုင်နက်တည်း execute လုပ်နိုင်မည့် အများဆုံး goroutines အရေအတွက်ကို default အားဖြင့် cores အရေအတွက်အတိုင်း သတ်မှတ်ပေးထားပါသည်။ ထို့ကြောင့် ဤ code ကို <code>GOMAXPROCS</code> အား မသတ်မှတ်ဘဲ အသုံးပြုနိုင်ရန် -
+        </p>
+        <pre><code>{`var numCPU = runtime.NumCPU()`}</code></pre>
+        <p>
+          <em>Concurrency</em> (code အား သီးခြားစီ execute လုပ်နိုင်သော အစိတ်အပိုင်းများအဖြစ် တည်ဆောက်ခြင်း) နှင့် <em>Parallelism</em> (multiple CPUs များပေါ်တွင် parallel လုပ်ဆောင်ခြင်းဖြင့် ပိုမိုမြန်ဆန်စေခြင်း) တို့ကို မရောထွေးရန် အရေးကြီးပါသည်။ Go ၏ concurrency features များက parallel execution အတွက် code ကို တည်ဆောက်ရန် လွယ်ကူစေသော်လည်း၊ Go သည် concurrency language တစ်ခုဖြစ်ပြီး parallelism language တစ်ခု မဟုတ်ပါ။
+        </p>
+
 
         <h3 id="leaky-buffer">A leaky buffer</h3>
         <p>
-          Concurrency tools များသည် concurrent မဟုတ်သော ideas များကိုပင် ပိုမိုရှင်းလင်းစွာ ဖော်ပြနိုင်စေပါသည်။ ဥပမာ - free list များကို buffered channel များ အသုံးပြု၍ တည်ဆောက်ခြင်း ဖြစ်ပါသည်။
+          Concurrent programming ၏ tools များသည် non-concurrent အယူအဆများကိုပင် ပိုမိုလွယ်ကူစွာ ဖော်ပြရန် ကူညီပေးနိုင်ပါသည်။ ဤသည်မှာ RPC package မှ ထုတ်နှုတ်ထားသော ဥပမာတစ်ခု ဖြစ်ပါသည်။ Client goroutine သည် loop တစ်ခုအတွင်း message များကို အချို့သော source (ဖြစ်နိုင်သည်မှာ network) မှ လက်ခံရရှိပါသည်။ Buffer များကို allocate နှင့် free လုပ်နေခြင်းကို ရှောင်ရှားရန်အတွက်၊ ၎င်းသည် free list တစ်ခုကို ထားရှိပြီး ဖြစ်နိုင်ပါက buffered channel အား အသုံးပြု၍ buffer တစ်ခုကို ပြန်လည် အသုံးပြုပါသည်။ အကယ်၍ channel သည် empty ဖြစ်နေပါက buffer အသစ်တစ်ခုကို allocate လုပ်ပါသည်။ Message ပြီးဆုံးသွားပါက buffer အား free list ထဲသို့ ပြန်လည် ထည့်သွင်းပေးပါသည်။
         </p>
         <pre><code>{`var freeList = make(chan *Buffer, 100)
 var serverChan = make(chan *Buffer)
@@ -1325,6 +1686,7 @@ var serverChan = make(chan *Buffer)
 func client() {
     for {
         var b *Buffer
+        // Grab a buffer if available; allocate if not.
         select {
         case b = <-freeList:
             // Got one; nothing more to do.
@@ -1332,22 +1694,44 @@ func client() {
             // None free, so allocate a new one.
             b = new(Buffer)
         }
-        load(b)              // Read next message from the network.
+        load(b)              // Read next message from the net.
         serverChan <- b      // Send to server.
     }
-}`}</code></pre>
+}
+`}</code></pre>
+        <p>
+          Server loop သည် client ထံမှ message တိုင်းကို လက်ခံရယူကာ process လုပ်ပြီး buffer အား free list ထဲသို့ ပြန်လည် ထည့်သွင်းပေးပါမည်။
+        </p>
+        <pre><code>{`func server() {
+    for {
+        b := <-serverChan    // Wait for work.
+        process(b)
+        // Reuse buffer if there's room.
+        select {
+        case freeList <- b:
+            // Buffer on free list; nothing more to do.
+        default:
+            // Free list full, just carry on.
+        }
+    }
+}
+`}</code></pre>
+        <p>
+          Client သည် <code>freeList</code> မှ buffer တစ်ခု ရယူရန် ကြိုးစားပါသည်။ အကယ်၍ မရှိပါက ၎င်းသည် အသစ်တစ်ခု တည်ဆောက်ပါသည်။ Server ၏ <code>freeList</code> သို့ ပေးပို့မှုသည် <code>freeList</code> ပြည့်နေပါက buffer အား drop လုပ်သွားပါမည် (default case ဖြစ်သွားပါမည်)၊ ၎င်းကို garbage collector က နောက်ပိုင်းတွင် သိမ်းဆည်းသွားပါလိမ့်မည်။ (<code>select</code> statement ရှိ <code>default</code> clauses များသည် case များထဲမှ တစ်ခုခုမှ အဆင်သင့်မဖြစ်ပါက execute လုပ်ခြင်း ဖြစ်ပါသည်၊ ဆိုလိုသည်မှာ <code>selects</code> များသည် ဘယ်သောအခါမှ block မဖြစ်ပါ)။ ဤ implementation သည် leaky bucket free list တစ်ခုကို lines အနည်းငယ်အတွင်း တည်ဆောက်ပေးထားခြင်း ဖြစ်ပါသည်။
+        </p>
+
       </section>
 
-      <section id="errors">
+      <section id="errors" className="animate-in opacity-0">
         <h2>Errors</h2>
         <p>
-          Go တွင် multivalue return ကြောင့် error description များကို ပုံမှန် return value နှင့်အတူ ပေးပို့ရန် လွယ်ကူစေပါသည်။ Convention အနေဖြင့် errors များသည် <code>error</code> ဟူသော built-in interface type ရှိကြပါသည်။
+          Library routines များသည် error information များကို caller ဆီသို့ return ပြန်ပေးရန် လိုအပ်လေ့ ရှိပါသည်။ Go ၏ multivalue return သည် ပုံမှန် return value နှင့်အတူ error description တစ်ခုကို return ပြန်ရန် လွယ်ကူစေပါသည်။ Convention အနေဖြင့် errors များသည် simple built-in interface ဖြစ်သော <code>error</code> type ရှိကြပါသည်။
         </p>
         <pre><code>{`type error interface {
     Error() string
 }`}</code></pre>
         <p>
-          Library တည်ဆောက်သူများသည် ဤ interface ကို အသုံးပြု၍ error အခြေအနေများကို ပိုမိုပြည့်စုံစွာ ဖော်ပြနိုင်ပါသည်။ ဥပမာအားဖြင့် <code>os.Open</code> သည် <code>*os.PathError</code> ကို ပေးပို့ပါသည်။
+          Library တည်ဆောက်သူများသည် error interface အား ပိုမိုပြည့်စုံသော type တစ်ခုခုဖြင့် implement လုပ်ရန် လွတ်လပ်မှု ရှိပါသည်။ ၎င်းသည် error ကို ပေးပို့ရုံသာမက context အချို့ပါ ပေးဆောင်ရန် ခွင့်ပြုပါသည်။ ဥပမာအားဖြင့် <code>os.Open</code> သည် <code>*os.PathError</code> ကို return ပြန်ပါသည်။
         </p>
         <pre><code>{`// PathError records an error and the operation and file path that caused it.
 type PathError struct {
@@ -1359,10 +1743,50 @@ type PathError struct {
 func (e *PathError) Error() string {
     return e.Op + " " + e.Path + ": " + e.Err.Error()
 }`}</code></pre>
+        <p>
+          <code>PathError</code> ၏ <code>Error</code> method သည် ဤသို့သော string မျိုးကို generate လုပ်ပေးပါသည် -
+        </p>
+        <pre><code>open /etc/passwx: no such file or directory</code></pre>
+        <p>
+          အဆိုပါ error တွင် ပြဿနာရှိသော filename, operation နှင့် kernel မှ ပေးပို့သော error ပါဝင်သောကြောင့် print ထုတ်သောအခါ အသုံးဝင်ပါသည်။ ၎င်းသည် callers များအတွက်လည်း error အကြောင်း အသေးစိတ် သိရှိလိုပါက type assertion တစ်ခုကို အသုံးပြု၍ error ကို extract လုပ်ကာ အချက်အလက်များကို ရယူနိုင်ရန် အခွင့်အလမ်း ပေးပါသည်။
+        </p>
+        <pre><code>{`for i := 0; i < n; i++ {
+    if err := v.DoSome(i, u); err != nil {
+        if e, ok := err.(*os.PathError); ok && e.Err == syscall.ENOSPC {
+            panic(e)
+        }
+        log.Print(err)
+        return err
+    }
+}`}</code></pre>
+        <p>
+          ဤနေရာတွင် ဒုတိယ <code>if</code> statement သည် interface type assertion တစ်ခု ဖြစ်ပါသည် (<code>err</code> ကို <code>*os.PathError</code> အဖြစ် convert လုပ်ရန် ကြိုးစားခြင်း ဖြစ်ပါသည်)။ အကယ်၍ conversion အောင်မြင်ပါက <code>e</code> သည် error အား <code>*os.PathError</code> အဖြစ် reference လုပ်ပါမည်။ ထို့နောက် <code>e.Err == syscall.ENOSPC</code> ဟု စစ်ဆေးကာ error သည် device တွင် နေရာလွတ် မရှိတော့ခြင်းကြောင့် ဖြစ်သည်ကို သိရှိနိုင်ပါသည်။
+        </p>
+
 
         <h3 id="panic">Panic</h3>
         <p>
-          Error တစ်ခုကို caller ဆီ ပေးပို့ရန်မှာ ပုံမှန်နည်းလမ်း ဖြစ်သော်လည်း၊ တစ်ခါတစ်ရံတွင် program ကို ဆက်လက် လုပ်ဆောင်ရန် မဖြစ်နိုင်သော အခြေအနေမျိုး (ဥပမာ - initialization ပျက်ကွက်ခြင်း) တွင် <code>panic</code> built-in function ကို အသုံးပြုနိုင်ပါသည်။ ၎င်းသည် program ကို ရပ်တန့်စေပြီး stack trace ကို ထုတ်ပေးပါသည်။
+          Error တစ်ခုကို caller ဆီသို့ ပေးပို့ရန်မှာ ပုံမှန်နည်းလမ်း ဖြစ်ပါသည် (ဥပမာ - <code>Read</code> method သည် byte count နှင့် error ကို return ပြန်ခြင်း)။ သို့သော် အကယ်၍ error သည် unrecoverable ဖြစ်နေပါက ဘယ်လိုလုပ်မလဲ။ တစ်ခါတစ်ရံတွင် program ကို ဆက်လက် လုပ်ဆောင်ရန် မဖြစ်နိုင်သော အခြေအနေမျိုး ရှိနိုင်ပါသည်။
+        </p>
+        <p>
+          ဤရည်ရွယ်ချက်အတွက် <code>panic</code> ဟူသော built-in function ရှိပါသည်၊ ၎င်းသည် program ကို ရပ်တန့်စေသော run-time error တစ်ခုကို create လုပ်ပေးပါသည်။ (သို့သော် နောက်အပိုင်းတွင် ဖော်ပြမည့် <code>recover</code> ကို ကြည့်ပါ)။ အဆိုပါ function သည် arbitrary value တစ်ခုကို argument အဖြစ် လက်ခံပြီး program ရပ်တန့်သွားသောအခါ ၎င်းကို print ထုတ်ပေးပါသည်။ ၎င်းသည် မဖြစ်နိုင်သော အခြေအနေတစ်ခု ဖြစ်ပေါ်လာကြောင်း အချက်ပြရန် နည်းလမ်းတစ်ခုလည်း ဖြစ်ပါသည်။ ဥပမာအားဖြင့် infinite loop တစ်ခုမှ ထွက်သွားခြင်းမျိုး ဖြစ်ပါသည်။
+        </p>
+        <pre><code>{`// A toy implementation of cube root using Newton's method.
+func CubeRoot(x float64) float64 {
+    z := x/3   // Arbitrary initial value
+    for i := 0; i < 1e6; i++ {
+        prevz := z
+        z -= (z*z*z-x) / (3*z*z)
+        if abs(z-prevz) < 1e-6 {
+            return z
+        }
+    }
+    // A million iterations has not converged; something overhead must be wrong.
+    panic(fmt.Sprintf("CubeRoot(%g) did not converge", x))
+}
+`}</code></pre>
+        <p>
+          ၎င်းသည် ဥပမာတစ်ခုသာ ဖြစ်သော်လည်း၊ real library routines များသည် <code>panic</code> ကို ရှောင်ရှားသင့်ပါသည်။ အကယ်၍ error ကို caller ထံသို့ တစ်နည်းနည်းဖြင့် ပေးပို့နိုင်ပါက၊ ၎င်းကို အမြဲတမ်း ဦးစားပေး လုပ်ဆောင်သင့်ပါသည်။ ချွင်းချက်တစ်ခုမှာ initialization ပျက်ကွက်ခြင်း ဖြစ်နိုင်ပါသည် - အကယ်၍ library သည် ၎င်းကိုယ်တိုင် setup မလုပ်နိုင်ပါက၊ panic ဖြစ်သွားခြင်းက အသင့်တော်ဆုံး ဖြစ်နိုင်ပါသည်။
         </p>
         <pre><code>{`var user = os.Getenv("USER")
 
@@ -1372,9 +1796,16 @@ func init() {
     }
 }`}</code></pre>
 
+
         <h3 id="recover">Recover</h3>
         <p>
-          <code>panic</code> ဖြစ်ပေါ်လာသောအခါ <code>recover</code> function ကို အသုံးပြု၍ program ရပ်တန့်သွားခြင်းမှ ကာကွယ်နိုင်ပြီး control ကို ပြန်လည် ရယူနိုင်ပါသည်။ <code>recover</code> သည် <code>defer</code> လုပ်ထားသော function အတွင်းမှာသာ အလုပ်လုပ်ပါသည်။
+          <code>panic</code> ခေါ်ဆိုခံရသောအခါ (implicit runtime errors များ အပါအဝင် - ဥပမာ slice index out of bounds သို့မဟုတ် type assertion fail ဖြစ်ခြင်း)၊ ၎င်းသည် လက်ရှိ function ကို ချက်ချင်း ရပ်တန့်စေပြီး stack ကို unwind လုပ်ကာ deferred functions အားလုံးကို run စေပါသည်။ Stack သည် unwind ဖြစ်သွားသော်လည်း၊ deferred functions များအတွင်း <code>recover</code> ကို ခေါ်ဆိုခြင်းဖြင့် control ကို ပြန်လည် ရယူနိုင်ပြီး program ရပ်တန့်သွားခြင်းမှ ကာကွယ်နိုင်ပါသည်။
+        </p>
+        <p>
+          <code>recover</code> ခေါ်ဆိုခြင်းသည် panic ဖြစ်စဉ်ကို ရပ်တန့်စေပြီး <code>panic</code> ထံသို့ ပေးပို့ခဲ့သော argument ကို return ပြန်ပေးပါသည်။ Panic ဖြစ်မနေပါက <code>recover</code> သည် <code>nil</code> ကို return ပြန်ပါသည်။
+        </p>
+        <p>
+          ဤသည်မှာ server တစ်ခုအတွင်း ဖြစ်ပေါ်လာနိုင်သော panics များအား program တစ်ခုလုံး မပျက်စီးစေရန် ကာကွယ်ပေးသော ဥပမာတစ်ခု ဖြစ်ပါသည် -
         </p>
         <pre><code>{`func server(work chan *Work) {
     for Elephant := range work {
@@ -1389,13 +1820,51 @@ func safelyDo(work *Work) {
         }
     }()
     do(work)
-}`}</code></pre>
+}
+`}</code></pre>
         <p>
-          အကယ်၍ <code>do(work)</code> သည် panic ဖြစ်သွားခဲ့ပါက <code>safelyDo</code> ၏ defer function ထဲမှ <code>recover</code> သည် ၎င်းကို ဖမ်းယူလိုက်မည် ဖြစ်ပြီး အခြား goroutines များကို ဆက်လက် အလုပ်လုပ်စေမည် ဖြစ်ပါသည်။
+          ဤဥပမာတွင် <code>do(work)</code> သည် panic ဖြစ်သွားပါက၊ result ကို log လုပ်ပြီး goroutine သည် program အားလုံးကို မထိခိုက်စေဘဲ အသံတိတ် ထွက်ခွာသွားပါမည်။ Deferred closures များအတွင်း <code>recover</code> ကို အသုံးပြုခြင်းဖြင့် မည်သည့် execution trace ကိုမဆို စစ်ဆေးနိုင်ပါသည်။
         </p>
+        <p>
+          အသုံးဝင်သော အခြား pattern တစ်ခုမှာ package အတွင်းရှိ complex error handling များကို panic/recover အသုံးပြု၍ ရိုးရှင်းစေခြင်းပင် ဖြစ်ပါသည်။ ဤသည်မှာ <code>regexp</code> package ၏ ဥပမာတစ်ခု ဖြစ်ပါသည်။ ၎င်းသည် internal parse errors များကို local <code>panic</code> call တစ်ခုဖြင့် ပေးပို့ပြီး၊ callers များထံသို့ return မပြန်မီ <code>recover</code> ဖြင့် handle လုပ်ပါသည်။
+        </p>
+        <pre><code>{`// Error is the type of a parse error; it satisfies the error interface.
+type Error string
+func (e Error) Error() string {
+    return string(e)
+}
+
+// error is a method of *Regexp that reports a parse error by panicking with an Error.
+func (regexp *Regexp) error(err string) {
+    panic(Error(err))
+}
+
+// Compile returns a parsed representation of the regular expression.
+func Compile(str string) (regexp *Regexp, err error) {
+    regexp = new(Regexp)
+    // doParse will panic if there is a parse error.
+    defer func() {
+        if e := recover(); e != nil {
+            regexp = nil    // Clear return value.
+            err = e.(Error) // Will re-panic if not a parse error.
+        }
+    }()
+    return regexp.doParse(str), nil
+}
+`}</code></pre>
+        <p>
+          အကယ်၍ <code>doParse</code> သည် panic ဖြစ်သွားပါက၊ recovery block ထဲတွင် return value အား <code>nil</code> သို့ သတ်မှတ်မည်ဖြစ်ပြီး <code>err</code> variable အား panic value (Error type သို့ assert လုပ်ထားသော တန်ဖိုး) ဖြင့် update လုပ်ပါမည်။ အကယ်၍ assertion fail ဖြစ်ပါက (panic သည် manual ခေါ်ဆိုမှု မဟုတ်ဘဲ runtime error ကြောင့် ဖြစ်ခဲ့လျှင်)၊ ၎င်းသည် re-panic ဖြစ်သွားမည်ဖြစ်ပြီး error handling logic ကို မထိခိုက်စေပါ။
+        </p>
+        <p>
+          ဤ pattern ကို အသုံးပြုခြင်းဖြင့် parse code သည် error returns များစွာဖြင့် ရှုပ်ထွေးမနေတော့ဘဲ ပိုမိုရှင်းလင်းသွားပါသည်။
+        </p>
+        <p>
+          အနှစ်ချုပ်ရလျှင်၊ <code>panic</code> နှင့် <code>recover</code> အား idiomatic နည်းလမ်းဖြင့် အသုံးပြုခြင်းသည် code ကို ပိုမိုသန့်ရှင်းစေသော်လည်း၊ ၎င်းကို package အတွင်းပိုင်းတွင်သာ အသုံးပြုသင့်ပြီး callers များ မြင်တွေ့ရမည့် interface တွင် ပုံမှန် <code>error</code> returns ကိုသာ အသုံးပြုသင့်ပါသည်။
+        </p>
+
       </section>
 
-      <section id="web-server">
+      <section id="web-server" className="animate-in opacity-0">
         <h2>A web server</h2>
         <p>
           နောက်ဆုံးအနေဖြင့် အထက်ပါ အချက်အလက်များကို ပေါင်းစပ်ထားသော Go web server တစ်ခု၏ ဥပမာကို ကြည့်ကြပါစို့။ ဤ program သည် user ထံမှ parameter တစ်ခုကို လက်ခံပြီး QR code image တစ်ခုအဖြစ် ပြောင်းလဲပေးမည် ဖြစ်ပါသည်။
