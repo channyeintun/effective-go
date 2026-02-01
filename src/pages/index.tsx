@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Head from 'next/head';
 import Layout from '@/components/Layout';
 import { tocItems } from '@/data/toc';
 import { animate } from 'animejs';
@@ -17,6 +18,15 @@ const EffectiveGo = () => {
 
   return (
     <Layout tocItems={tocItems}>
+      <Head>
+        <title>Effective Go (မြန်မာဘာသာ)</title>
+        <meta name="description" content="Go ပရိုဂရမ်းမင်းဘာသာစကား၏ ထူးခြားသော ဂုဏ်သတ္တိများနှင့် idioms (အသုံးအနှုန်းပုံစံများ) ကို မြန်မာဘာသာဖြင့် ဖတ်ရှုလေ့လာနိုင်ပါသည်။" />
+        <meta name="keywords" content="Go, Golang, Effective Go, Myanmar, Burmese, Programming, Documentation" />
+        <meta property="og:title" content="Effective Go (မြန်မာဘာသာ)" />
+        <meta property="og:description" content="Go ပရိုဂရမ်းမင်းဘာသာစကား၏ ထူးခြားသော ဂုဏ်သတ္တိများနှင့် idioms (အသုံးအနှုန်းပုံစံများ) ကို မြန်မာဘာသာဖြင့် ဖတ်ရှုလေ့လာနိုင်ပါသည်။" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Effective Go Myanmar" />
+      </Head>
       <div className="animate-in opacity-0">
         <h1 id="top">Effective Go (မြန်မာဘာသာ)</h1>
       </div>
