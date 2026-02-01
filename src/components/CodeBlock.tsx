@@ -9,7 +9,7 @@ interface CodeBlockProps {
 
 const CodeBlock: React.FC<CodeBlockProps> = ({ code, language = 'go' }) => {
     return (
-        <div className="my-8 rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+        <div className="my-8 rounded-xl overflow-x-auto border border-white/10 shadow-2xl max-w-[calc(100vw-2rem)]">
             <SyntaxHighlighter
                 language={language}
                 style={vscDarkPlus}

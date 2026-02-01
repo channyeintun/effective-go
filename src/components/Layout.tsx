@@ -11,9 +11,9 @@ const Layout: React.FC<LayoutProps> = ({ children, tocItems }) => {
     return (
         <div className="min-h-screen bg-[#fdfdfe] selection:bg-go-light-blue selection:text-go-dark-blue">
             {/* Decorative background elements */}
-            <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
-                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-go-light-blue/20 blur-[120px] rounded-full"></div>
-                <div className="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-go-blue/10 blur-[100px] rounded-full"></div>
+            <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+                <div className="absolute top-0 left-0 w-[40%] h-[40%] bg-go-light-blue/20 blur-[120px] rounded-full -translate-x-[10%] -translate-y-[10%]"></div>
+                <div className="absolute bottom-0 right-0 w-[30%] h-[30%] bg-go-blue/10 blur-[100px] rounded-full translate-x-[10%] translate-y-[10%]"></div>
             </div>
 
             <div className="relative z-10 flex min-h-screen">
