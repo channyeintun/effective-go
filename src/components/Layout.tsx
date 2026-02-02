@@ -18,7 +18,7 @@ const Layout: React.FC<LayoutProps> = ({ children, tocItems }) => {
 
             <div className="relative z-10 flex min-h-screen">
                 {/* Main Content */}
-                <div className="flex-1 transition-all duration-300">
+                <div className="flex-1 min-w-0 transition-all duration-300">
                     <div className="max-w-4xl mx-auto px-6 py-12 md:px-12 lg:px-16">
                         <main className="content-card bg-white/80 backdrop-blur-sm p-8 md:p-12 lg:p-16">
                             {children}

@@ -7,7 +7,7 @@ interface OnThisPageProps {
 
 const OnThisPage: React.FC<OnThisPageProps> = ({ items }) => {
     return (
-        <div className="h-full py-12 px-8 overflow-y-auto custom-scrollbar">
+        <div className="h-full py-12 px-8 overflow-y-auto max-w-full custom-scrollbar">
             {/* CSS-only approach for scroll position highlighting */}
             <style jsx>{`
                 .toc-nav {
@@ -16,6 +16,8 @@ const OnThisPage: React.FC<OnThisPageProps> = ({ items }) => {
                 .toc-link {
                     border-left: 2px solid transparent;
                     transition: all 0.2s ease;
+                    overflow-wrap: break-word;
+                    word-break: break-word;
                 }
                 .toc-link:target-current {
                     color: var(--go-blue) !important;
@@ -33,12 +35,12 @@ const OnThisPage: React.FC<OnThisPageProps> = ({ items }) => {
                 On This Page
             </h5>
 
-            <nav className="toc-nav flex flex-col space-y-1">
+            <nav className="toc-nav flex flex-col space-y-1 max-w-full">
                 {items.map((item) => (
                     <a
                         key={item.id}
                         href={`#${item.id}`}
-                        className={`toc-link text-[13px] py-1.5 pl-4 -ml-[1px] rounded-r-lg ${item.level === 1 ? 'text-slate-700' : 'text-slate-500'
+                        className={`toc-link text-[13px] py-1.5 pl-4 -ml-[1px] rounded-r-lg break-words ${item.level === 1 ? 'text-slate-700' : 'text-slate-500'
                             }`}
                         style={{ paddingLeft: `${1 + (item.level - 1) * 0.75}rem` }}
                     >

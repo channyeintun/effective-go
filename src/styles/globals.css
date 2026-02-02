@@ -26,6 +26,7 @@ pre {
   border-radius: 12px;
   padding: 1.5rem;
   overflow-x: auto;
+  max-width: 100%;
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.9rem;
   line-height: 1.6;
@@ -44,7 +45,9 @@ code {
   border-radius: 6px;
   font-size: 0.85em;
   font-weight: 500;
-  white-space: pre !important;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 pre code {
@@ -69,7 +72,7 @@ h4 {
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: clamp(1.75rem, 5vw, 3.5rem);
   margin-top: 2rem;
   background: var(--accent-gradient);
   -webkit-background-clip: text;
@@ -78,21 +81,29 @@ h1 {
   line-height: 1.6;
   padding-bottom: 0.5rem;
   display: block;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 h2 {
-  font-size: 2.25rem;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
   border-bottom: 2px solid var(--gray-medium);
   padding-bottom: 0.75rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 h3 {
-  font-size: 1.75rem;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
   color: var(--go-dark-blue);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 p {
   margin-bottom: 1.25rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 a {
